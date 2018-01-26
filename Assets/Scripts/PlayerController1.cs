@@ -19,6 +19,8 @@ public class PlayerController1 : MonoBehaviour {
     Text lifes;
     [SerializeField]
     GameObject Vehicle;
+    [SerializeField]
+    GameObject spawnPlayer;
 
     Vector3 direction = new Vector3(0.0f, 0.0f, 0.0f);
 
@@ -40,9 +42,11 @@ public class PlayerController1 : MonoBehaviour {
 	void Update ()
     {
         //Change from normal player to vehicle
-        if(Input.GetAxis("Fire2")>0)
+        if(Input.GetButtonDown("Fire2"))
         {
             gameObject.SetActive(false);
+            Vehicle.transform.position = spawnPlayer.transform.position;
+
             Vehicle.SetActive(true);
         }
        
@@ -101,5 +105,11 @@ public class PlayerController1 : MonoBehaviour {
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag.Equals("water"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
 }
