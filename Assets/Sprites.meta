@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 528222c2339581b4f9a9f6f86150b993
 folderAsset: yes
 timeCreated: 1516191298
+=======
+guid: eaf4b12d8254f0e4b9c5eb210c2ec12a
+folderAsset: yes
+timeCreated: 1516182915
+>>>>>>> origin/Fernand
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

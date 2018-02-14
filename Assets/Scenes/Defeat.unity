@@ -154,7 +154,11 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
+<<<<<<< HEAD
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+=======
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+>>>>>>> origin/Fernand
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -194,6 +198,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &1944845482
 Prefab:
   m_ObjectHideFlags: 0
@@ -309,3 +314,5 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e55e92f80bd504948a30f230d9477566, type: 2}
   m_IsPrefabParent: 0
+=======
+>>>>>>> origin/Fernand
