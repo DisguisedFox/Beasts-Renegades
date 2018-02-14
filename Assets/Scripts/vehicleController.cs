@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class vehicleController : MonoBehaviour {
     [SerializeField]
     GameObject player;
@@ -9,7 +9,6 @@ public class vehicleController : MonoBehaviour {
     Transform positionPlayer;
     [SerializeField]
     Transform bottom;
-    private float timeMax = 5.0f;
     [SerializeField]
     LayerMask layerMaskFloor;
     [SerializeField]
@@ -22,6 +21,12 @@ public class vehicleController : MonoBehaviour {
     Vector3 direction = new Vector3(0.0f, 0.0f, 0.0f);
 
     Rigidbody2D rigid;
+
+    [SerializeField]
+    Text lifes;
+    [SerializeField]
+    AudioSource blaster;
+  private static  int playerLifes = 10;
     // Use this for initialization
 
 
@@ -75,6 +80,7 @@ public class vehicleController : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
+            blaster.Play();
             GameObject bullet;
             bullet = Instantiate(bulletPrefab, bulletPrefab.transform.position, bulletPrefab.transform.rotation);
             bullet.SetActive(true);
@@ -87,10 +93,24 @@ public class vehicleController : MonoBehaviour {
         
        
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag.Equals("enemyBullet"))
+        {
+            Destroy(collision.gameObject);
+            playerLifes--;
+            lifes.text = "Lifes : "+playerLifes;
+        }
+    }
     private void OnEnable()
     {
        transform.position= new Vector3(positionPlayer.position.x,bottom.position.y);
+        playerLifes = PlayerController1.getPlayerLifes();
     }
 
-    
+    public static int getPlayerLifes()
+    {
+        return playerLifes;
+    }
 }

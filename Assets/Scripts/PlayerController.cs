@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        PlayerPrefs.SetString("lastplanete", PlayerPrefs.GetString("lastLoadedScene"));
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class enemyController : MonoBehaviour {
+
     [SerializeField]
     AnimationCurve animationVibro;
     private float vibrateAmplificator = 2.0f;
@@ -15,6 +16,7 @@ public class enemyController : MonoBehaviour {
     int ennemyLifes = 1;
     // Use this for initialization
     void Start () {
+       
         positionInitial = transform.position;
         StartCoroutine(shooting());
     }
@@ -35,13 +37,16 @@ public class enemyController : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        float currentTime = Time.timeSinceLevelLoad % timeMax;
-        currentTime /= timeMax - 1;
-        float positionY = animationVibro.Evaluate(currentTime);
-        positionY *= vibrateAmplificator;
-        Vector3 newPosition = new Vector3(positionInitial.x, positionY + positionInitial.y, positionInitial.z);
-        transform.SetPositionAndRotation(newPosition, transform.rotation);
-        
+
+        if (tag.Equals("Boss"))
+        {
+            float currentTime = Time.timeSinceLevelLoad % timeMax;
+            currentTime /= timeMax - 1;
+            float positionY = animationVibro.Evaluate(currentTime);
+            positionY *= vibrateAmplificator;
+            Vector3 newPosition = new Vector3(positionInitial.x, positionY + positionInitial.y, positionInitial.z);
+            transform.SetPositionAndRotation(newPosition, transform.rotation);
+        }
     }
 
 
@@ -51,14 +56,15 @@ public class enemyController : MonoBehaviour {
         {
 
             ennemyLifes--;
-            Destroy(collision.gameObject);
-            if(gameObject.tag.Equals("Boss")&&ennemyLifes<=0)
+         
+            if(ennemyLifes<=0)
             {
+                Destroy(gameObject);
+                if(tag.Equals("Boss"))
                 SceneManager.LoadScene("Victory");
 
             }
-            else
-                Destroy(gameObject);
+           
 
         }
     }

@@ -10,8 +10,7 @@ public class PauseController : MonoBehaviour {
     Button exit;
     [SerializeField]
     GameObject canvasPause;
-    [SerializeField]
-    GameObject canvasGame;
+    
     bool continueBtn = true;
     // Use this for initialization
     void Start()
@@ -24,7 +23,6 @@ public class PauseController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        canvasGame.SetActive(false);
        if(Input.GetAxis("Vertical")!=0)
         {
             if(continueBtn)
@@ -44,7 +42,6 @@ public class PauseController : MonoBehaviour {
     {
         //A changer pour loader la station en premier
         Time.timeScale = 1;
-            canvasGame.SetActive(true);
             canvasPause.SetActive(false);
         
     }

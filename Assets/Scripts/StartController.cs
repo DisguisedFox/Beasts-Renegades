@@ -8,7 +8,7 @@ public class StartController : MonoBehaviour {
     Button play;
     [SerializeField]
     Button exit;
-
+    
 	// Use this for initialization
 	void Start ()
     {
@@ -25,7 +25,7 @@ public class StartController : MonoBehaviour {
     void loadGame()
     {
         //A changer pour loader la station en premier
-        SceneManager.LoadScene("planete1");
+        SceneManager.LoadScene("station");
     }
 
     void exitGame()

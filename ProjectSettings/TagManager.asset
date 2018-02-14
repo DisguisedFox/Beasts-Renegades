@@ -8,6 +8,8 @@ TagManager:
   - water
   - bullet
   - Boss
+  - rat
+  - spikes
   layers:
   - Default
   - TransparentFX
@@ -48,6 +50,9 @@ TagManager:
   - name: background
     uniqueID: 3416742079
     locked: 0
+  - name: beforeForeground
+    uniqueID: 4287409293
+    locked: 0
   - name: foreground
     uniqueID: 1761130261
     locked: 0
@@ -56,4 +61,7 @@ TagManager:
     locked: 0
   - name: pause
     uniqueID: 1991078711
+    locked: 0
+  - name: weaponInventory
+    uniqueID: 570624337
     locked: 0
