@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/testing zelda-like gameplay.unity
+- path: Assets/Scenes/planete2.unity
   isLoaded: 1
   isActive: 1
