@@ -1,32 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.UI;
-=======
->>>>>>> origin/Fernand
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
     private float speed;
-<<<<<<< HEAD
     [SerializeField]
     GameObject bulletPrefab;
     [SerializeField]
     GameObject bulletSpawner;
 
-=======
-
-    [SerializeField]
-    GameObject bulletPrefab;
-
-    [SerializeField]
-    GameObject bulletSpawner;
-
-
->>>>>>> origin/Fernand
     private Vector2 direction;
     [SerializeField]
     private Sprite spriteUp;
@@ -38,7 +24,6 @@ public class PlayerController : MonoBehaviour {
     private Sprite spriteRight;
     private SpriteRenderer spriteRenderer;
 
-<<<<<<< HEAD
     private int playerLifes = 3;
     [SerializeField]
     private Text textLifes;
@@ -51,16 +36,6 @@ public class PlayerController : MonoBehaviour {
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
         textLifes.text = TEXT_LIFES + playerLifes;
-=======
-    // Use this for initialization
-    void Start()
-    {
-        PlayerPrefs.SetString("lastplanete", PlayerPrefs.GetString("lastLoadedScene"));
-        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
-        spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
-        if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
-            spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
->>>>>>> origin/Fernand
     }
 
     // Update is called once per frame
@@ -121,13 +96,21 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-<<<<<<< HEAD
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "enemyBullet")
         {
             PlayerDie();
             Destroy(collision.gameObject);
+        }
+        if (collision.tag == "health")
+        {
+            PlayerHeal();
+            Destroy(collision.gameObject);
+        }
+        if (collision.tag == "enemyMinon")
+        {
+            PlayerDie();
         }
     }
 
@@ -143,6 +126,10 @@ public class PlayerController : MonoBehaviour {
             textLifes.text = TEXT_LIFES + playerLifes;
         }
     }
-=======
->>>>>>> origin/Fernand
+
+    public void PlayerHeal()
+    {
+        playerLifes++;
+        textLifes.text = TEXT_LIFES + playerLifes;
+    }
 }

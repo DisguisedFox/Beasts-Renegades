@@ -204,15 +204,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick button 1
     altNegativeButton: 
-<<<<<<< HEAD
-    altPositiveButton: return
-=======
-<<<<<<< HEAD
     altPositiveButton: 
-=======
-    altPositiveButton: return
->>>>>>> origin/Fernand
->>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -301,84 +293,3 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
-<<<<<<< HEAD
-  - serializedVersion: 3
-    m_Name: pauseButton
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: joystick button 7
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 2
-    axis: 0
-    joyNum: 0
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
-  - serializedVersion: 3
-    m_Name: pauseButton
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: escape
-    altNegativeButton: 
-<<<<<<< HEAD
-    altPositiveButton: 
-=======
-    altPositiveButton: joystick button 7
->>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-<<<<<<< HEAD
-    type: 0
-=======
-    type: 2
->>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: backButton
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: i
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: backButton
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: joystick button 6
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 2
-    axis: 0
-    joyNum: 0
-<<<<<<< HEAD
-=======
->>>>>>> origin/Fernand
->>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad

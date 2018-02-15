@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 35fe07dbeb309a94b950189c5fe3646e
-folderAsset: yes
-timeCreated: 1516183076
-=======
-<<<<<<< HEAD
 guid: f9611af9f721b674584292910e967903
 folderAsset: yes
 timeCreated: 1516101113
-=======
-guid: 35fe07dbeb309a94b950189c5fe3646e
-folderAsset: yes
-timeCreated: 1516183076
->>>>>>> origin/Fernand
->>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
