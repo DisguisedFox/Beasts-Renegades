@@ -32,7 +32,7 @@ public class PlayerController1 : MonoBehaviour {
     bool stoppedJumping;
 
     Vector3 direction = new Vector3(0.0f, 0.0f, 0.0f);
-
+    bool inventoryOpen=false;
     private static int playerLifes = 10;
     Rigidbody2D rigid;
 
@@ -41,9 +41,12 @@ public class PlayerController1 : MonoBehaviour {
     bool touchFloor=true;
     [SerializeField]
     float jumpForce = 6.0f;
+
+    
     // Use this for initialization
     void Start ()
     {
+        
         PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         rigid = GetComponent<Rigidbody2D>();
      //animator = GetComponent<Animator>();
@@ -53,6 +56,8 @@ public class PlayerController1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
+        
         ToggleInventory();
         //Change from normal player to vehicle
         if(Input.GetButtonDown("Fire2"))
@@ -63,21 +68,23 @@ public class PlayerController1 : MonoBehaviour {
             Vehicle.SetActive(true);
         }
 
-        if (Input.GetAxis("Horizontal") != 0)
+        if (!inventoryOpen)
         {
-            if (Input.GetAxis("Horizontal") < 0)
-                direction = Vector3.left;
-            if (Input.GetAxis("Horizontal") > 0)
-                direction = Vector3.right;
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                if (Input.GetAxis("Horizontal") < 0)
+                    direction = Vector3.left;
+                if (Input.GetAxis("Horizontal") > 0)
+                    direction = Vector3.right;
 
 
-            transform.Translate(direction * speed * Time.deltaTime);
+                transform.Translate(direction * speed * Time.deltaTime);
+
+            }
+            else
+                direction = new Vector3(0.0f, 1.0f, 0.0f);
 
         }
-        else
-            direction = new Vector3(0.0f, 1.0f, 0.0f);
-
-
         touchFloor = Physics2D.OverlapCircle(positionRaycastJump.position, radiusRaycastJump, layerMaskJump);
         if (touchFloor)
         {
@@ -173,6 +180,7 @@ public class PlayerController1 : MonoBehaviour {
 
     private void OnEnable()
     {
+       
         playerLifes = vehicleController.getPlayerLifes();
     }
 
@@ -181,7 +189,7 @@ public class PlayerController1 : MonoBehaviour {
         if (!inventory.activeSelf && Input.GetButtonDown("backButton"))
         {
             inventory.SetActive(true);
-            Time.timeScale = 0;
+            inventoryOpen = true;
 
 
         }
@@ -190,7 +198,7 @@ public class PlayerController1 : MonoBehaviour {
             if (Input.GetButtonDown("backButton"))
             {
                 inventory.SetActive(false);
-                Time.timeScale = 1;
+                inventoryOpen = false;
             }
         }
 

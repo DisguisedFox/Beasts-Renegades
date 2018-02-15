@@ -86,9 +86,12 @@ NavMeshProjectSettings:
     tileSize: 256
     accuratePlacement: 0
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     debug:
       m_Flags: 0
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   m_SettingNames:
   - Humanoid

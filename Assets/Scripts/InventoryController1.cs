@@ -56,90 +56,146 @@ public class InventoryController1 : MonoBehaviour
 
 
     }
-
+   
     // Update is called once per frame
     void Update()
     {
+
         selectWeapon();
 
     }
-    
+  
+
     public void selectWeapon()
     {
-        if (gameObject.activeSelf)
-        {
-            if (Input.GetAxisRaw("Horizontal")>0)
+        
+        //if the player click to the right
+            if (Input.GetButtonDown("Horizontal")&&Input.GetAxis("Horizontal")>0)
             {
+                //The weapon of inventory is changed
                 weaponChanged = true;
-                if (!slotBckgrnd.color.Equals(Color.white))
+            //if color of first slot is not white
+            if (slotBckgrnd.color != Color.white)
+            {
+                //if second slot is active
+                if (slotBckgrnd2.gameObject.activeSelf)
                 {
-                    if (slotBckgrnd2.gameObject.activeSelf)
-                    {
-                        slotBckgrnd.color = Color.white;
-                        slotBckgrnd2.color = Color.yellow;
-                    }
+                    //exchange colors
+                    slotBckgrnd.color = Color.white;
+                    slotBckgrnd2.color = Color.yellow;
                 }
-                if (!slotBckgrnd2.color.Equals(Color.white))
+            }
+            else {
+                if (slotBckgrnd2.color != Color.white)
                 {
-
                     if (slotBckgrnd3.gameObject.activeSelf)
                     {
                         slotBckgrnd2.color = Color.white;
                         slotBckgrnd3.color = Color.yellow;
                     }
-                }
-                if (!slotBckgrnd3.color.Equals(Color.white))
-                {
-                    if (slotBckgrnd4.gameObject.activeSelf)
+                    else
                     {
-                        slotBckgrnd3.color = Color.white;
-                        slotBckgrnd4.color = Color.yellow;
-                    }
-                }
-                if (!slotBckgrnd4.color.Equals(Color.white))
-                {
-                    if (slotBckgrnd.gameObject.activeSelf)
-                    {
-                        slotBckgrnd4.color = Color.white;
+                        slotBckgrnd2.color = Color.white;
                         slotBckgrnd.color = Color.yellow;
                     }
                 }
+                else
+                {
+                    if (slotBckgrnd3.color != Color.white)
+                    {
+                        if (slotBckgrnd4.gameObject.activeSelf)
+                        {
+                            slotBckgrnd3.color = Color.white;
+                            slotBckgrnd4.color = Color.yellow;
+                        }
+                        else
+                        {
+                            slotBckgrnd3.color = Color.white;
+                            slotBckgrnd.color = Color.yellow;
+                        }
+                    }
+                    else
+                    {
+                        if (slotBckgrnd4.color != Color.white)
+                        {
+                            if (slotBckgrnd.gameObject.activeSelf)
+                            {
+                                slotBckgrnd4.color = Color.white;
+                                slotBckgrnd.color = Color.yellow;
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+               
+               
+               
             }
            
             if (weaponChanged)
             {
-                
-                if (slotBckgrnd.color.Equals(Color.yellow))
-                {
-                   
-                    weapon2.SetActive(false);
-                    weapon3.SetActive(false);
-                    weapon4.SetActive(false);
 
-                }
-                if (slotBckgrnd2.color.Equals(Color.yellow))
+            if (slotBckgrnd.color == Color.yellow)
+            {
+
+                weapon2.SetActive(false);
+                weapon3.SetActive(false);
+                weapon4.SetActive(false);
+
+            }
+            else
+            {
+                if (slotBckgrnd2.color == Color.yellow)
                 {
                     weapon2.SetActive(true);
                     weapon3.SetActive(false);
                     weapon4.SetActive(false);
                 }
-                if (slotBckgrnd3.color.Equals(Color.yellow))
+                else
                 {
-                    weapon2.SetActive(false);
-                    weapon3.SetActive(true);
-                    weapon4.SetActive(false);
+                    if (slotBckgrnd3.color == Color.yellow)
+                    {
+                        weapon2.SetActive(false);
+                        weapon3.SetActive(true);
+                        weapon4.SetActive(false);
+                    }
+                    else
+                    {
+                        if (slotBckgrnd4.color == Color.yellow)
+                        {
+                            weapon2.SetActive(false);
+                            weapon3.SetActive(false);
+                            weapon4.SetActive(true);
+                        }
+                        
+                    }
+
                 }
-                if (slotBckgrnd4.color.Equals(Color.yellow))
-                {
-                    weapon2.SetActive(false);
-                    weapon3.SetActive(false);
-                    weapon4.SetActive(true);
-                }
+            }
+               
+               
                
             }
             weaponChanged = false;
         }
+    
+    
+    
+}
+public static class CoroutineUtilities
+{
+    public static IEnumerator WaitForRealTime(float delay)
+    {
+        while (true)
+        {
+            float pauseEndTime = Time.realtimeSinceStartup + delay;
+            while (Time.realtimeSinceStartup < pauseEndTime)
+            {
+                yield return 0;
+            }
+            break;
+        }
     }
-    
-    
 }

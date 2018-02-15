@@ -4,12 +4,17 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
 <<<<<<< HEAD
+  serializedVersion: 13
+  productGUID: 12c1860b924b88144bfda850d18538d1
+=======
+<<<<<<< HEAD
   serializedVersion: 14
   productGUID: 62b1b7ecc6ae73d45b6ed332649f8368
 =======
   serializedVersion: 13
   productGUID: 12c1860b924b88144bfda850d18538d1
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -18,10 +23,14 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
 <<<<<<< HEAD
+  productName: Beasts Renegades
+=======
+<<<<<<< HEAD
   productName: R.B. First Tests
 =======
   productName: Beasts Renegades
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -71,9 +80,12 @@ PlayerSettings:
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   preserveFramebufferAlpha: 0
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   disableDepthAndStencilBuffers: 0
   androidBlitType: 0
   defaultIsFullScreen: 1
@@ -85,10 +97,13 @@ PlayerSettings:
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   deferSystemGesturesMode: 0
   hideHomeButton: 0
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   submitAnalytics: 1
   usePlayerLog: 1
   bakeCollisionMeshes: 0
@@ -108,9 +123,13 @@ PlayerSettings:
   graphicsJobMode: 0
   macFullscreenMode: 2
 <<<<<<< HEAD
+  d3d9FullscreenMode: 1
+=======
+<<<<<<< HEAD
 =======
   d3d9FullscreenMode: 1
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   d3d11FullscreenMode: 1
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
@@ -121,6 +140,10 @@ PlayerSettings:
   n3dsEnableSharedListOpt: 1
   n3dsEnableVSync: 0
 <<<<<<< HEAD
+  ignoreAlphaClear: 0
+  xboxOneResolution: 0
+=======
+<<<<<<< HEAD
   xboxOneResolution: 0
   xboxOneSResolution: 0
   xboxOneXResolution: 3
@@ -128,6 +151,7 @@ PlayerSettings:
   ignoreAlphaClear: 0
   xboxOneResolution: 0
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   xboxOneMonoLoggingLevel: 0
   xboxOneLoggingLevel: 1
   xboxOneDisableEsram: 0
@@ -154,9 +178,12 @@ PlayerSettings:
   preloadedAssets: []
   metroInputSource: 0
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   wsaTransparentSwapchain: 0
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   xboxOneEnable7thCore: 0
@@ -170,17 +197,19 @@ PlayerSettings:
       enableVideoLayer: 0
       useProtectedVideoMemory: 0
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
       minimumSupportedHeadTracking: 0
       maximumSupportedHeadTracking: 1
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
     hololens:
       depthFormat: 1
-      depthBufferSharingEnabled: 0
-    oculus:
-      sharedDepthBuffer: 0
-      dashSupport: 0
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   m_ColorGamuts: 00000000
+<<<<<<< HEAD
+  targetPixelDensity: 0
+=======
   targetPixelDensity: 30
 =======
     hololens:
@@ -190,6 +219,7 @@ PlayerSettings:
   m_ColorGamuts: 00000000
   targetPixelDensity: 0
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
@@ -230,24 +260,29 @@ PlayerSettings:
   iPhone55inPortraitSplashScreen: {fileID: 0}
   iPhone55inLandscapeSplashScreen: {fileID: 0}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   iPhone58inPortraitSplashScreen: {fileID: 0}
   iPhone58inLandscapeSplashScreen: {fileID: 0}
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   iPadPortraitSplashScreen: {fileID: 0}
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   appleTVSplashScreen: {fileID: 0}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   appleTVSplashScreen2x: {fileID: 0}
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   tvOSSmallIconLayers: []
-  tvOSSmallIconLayers2x: []
   tvOSLargeIconLayers: []
-  tvOSLargeIconLayers2x: []
   tvOSTopShelfImageLayers: []
-  tvOSTopShelfImageLayers2x: []
   tvOSTopShelfImageWideLayers: []
+<<<<<<< HEAD
+=======
   tvOSTopShelfImageWideLayers2x: []
 =======
   tvOSSmallIconLayers: []
@@ -255,6 +290,7 @@ PlayerSettings:
   tvOSTopShelfImageLayers: []
   tvOSTopShelfImageWideLayers: []
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   iOSLaunchScreenType: 0
   iOSLaunchScreenPortrait: {fileID: 0}
   iOSLaunchScreenLandscape: {fileID: 0}
@@ -273,10 +309,13 @@ PlayerSettings:
   iOSLaunchScreeniPadSize: 100
   iOSLaunchScreeniPadCustomXibPath: 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   iOSUseLaunchScreenStoryboard: 0
   iOSLaunchScreenCustomStoryboardPath: 
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   iOSDeviceRequirements: []
   iOSURLSchemes: []
   iOSBackgroundModes: 0
@@ -289,9 +328,12 @@ PlayerSettings:
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   clonedFromGUID: 00000000000000000000000000000000
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -321,9 +363,12 @@ PlayerSettings:
     iPhone: 1
     tvOS: 1
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   m_BuildTargetGroupLightmapEncodingQuality: []
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   wiiUTitleID: 0005000011000000
   wiiUGroupID: 00010000
   wiiUCommonSaveSize: 4096
@@ -371,11 +416,14 @@ PlayerSettings:
   switchTitleNames_10: 
   switchTitleNames_11: 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   switchTitleNames_12: 
   switchTitleNames_13: 
   switchTitleNames_14: 
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   switchPublisherNames_0: 
   switchPublisherNames_1: 
   switchPublisherNames_2: 
@@ -389,11 +437,14 @@ PlayerSettings:
   switchPublisherNames_10: 
   switchPublisherNames_11: 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   switchPublisherNames_12: 
   switchPublisherNames_13: 
   switchPublisherNames_14: 
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   switchIcons_0: {fileID: 0}
   switchIcons_1: {fileID: 0}
   switchIcons_2: {fileID: 0}
@@ -407,11 +458,14 @@ PlayerSettings:
   switchIcons_10: {fileID: 0}
   switchIcons_11: {fileID: 0}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   switchIcons_12: {fileID: 0}
   switchIcons_13: {fileID: 0}
   switchIcons_14: {fileID: 0}
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   switchSmallIcons_0: {fileID: 0}
   switchSmallIcons_1: {fileID: 0}
   switchSmallIcons_2: {fileID: 0}
@@ -425,11 +479,14 @@ PlayerSettings:
   switchSmallIcons_10: {fileID: 0}
   switchSmallIcons_11: {fileID: 0}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   switchSmallIcons_12: {fileID: 0}
   switchSmallIcons_13: {fileID: 0}
   switchSmallIcons_14: {fileID: 0}
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   switchManualHTML: 
   switchAccessibleURLs: 
   switchLegalInformation: 
@@ -472,10 +529,13 @@ PlayerSettings:
   switchParentalControl: 0
   switchAllowsScreenshot: 1
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   switchAllowsVideoCapturing: 1
   switchAllowsRuntimeAddOnContentInstall: 0
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   switchDataLossConfirmation: 0
   switchSupportedNpadStyles: 3
   switchSocketConfigEnabled: 0
@@ -503,19 +563,26 @@ PlayerSettings:
   ps4VideoOutInitialWidth: 1920
   ps4VideoOutBaseModeInitialWidth: 1920
 <<<<<<< HEAD
+  ps4VideoOutReprojectionRate: 120
+=======
+<<<<<<< HEAD
   ps4VideoOutReprojectionRate: 60
 =======
   ps4VideoOutReprojectionRate: 120
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   ps4PronunciationXMLPath: 
   ps4PronunciationSIGPath: 
   ps4BackgroundImagePath: 
   ps4StartupImagePath: 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   ps4StartupImagesFolder: 
   ps4IconImagesFolder: 
 =======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   ps4SaveDataImagePath: 
   ps4SdkOverride: 
   ps4BGMPath: 
@@ -636,10 +703,14 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
 <<<<<<< HEAD
+  metroPackageName: Beasts Renegades
+=======
+<<<<<<< HEAD
   metroPackageName: R.B. First Tests
 =======
   metroPackageName: Beasts Renegades
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
@@ -647,10 +718,14 @@ PlayerSettings:
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
 <<<<<<< HEAD
+  metroApplicationDescription: Beasts Renegades
+=======
+<<<<<<< HEAD
   metroApplicationDescription: R.B. First Tests
 =======
   metroApplicationDescription: Beasts Renegades
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -690,13 +765,19 @@ PlayerSettings:
   n3dsApplicationId: 0xFF3FF
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   stvDeviceAddress: 
   stvProductDescription: 
   stvProductAuthor: 
   stvProductAuthorEmail: 
   stvProductLink: 
   stvProductCategory: 0
+<<<<<<< HEAD
+=======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   XboxOneProductId: 
   XboxOneUpdateKey: 
   XboxOneSandboxId: 
@@ -728,6 +809,11 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
 <<<<<<< HEAD
+  cloudProjectId: a70e3d6e-35dc-47d0-a52a-4b666fde2c54
+  projectName: Beasts Renegades
+  organizationId: diogo100089079
+=======
+<<<<<<< HEAD
   cloudProjectId: 
   projectName: 
   organizationId: 
@@ -736,6 +822,7 @@ PlayerSettings:
   projectName: Beasts Renegades
   organizationId: diogo100089079
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

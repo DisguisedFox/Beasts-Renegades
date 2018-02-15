@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+m_EditorVersion: 2017.2.0f3
+=======
+<<<<<<< HEAD
 m_EditorVersion: 2017.3.0f3
 =======
 m_EditorVersion: 2017.2.0f3
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad

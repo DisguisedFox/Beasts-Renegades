@@ -6,15 +6,21 @@ TagManager:
   tags:
   - enemyBullet
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
   - playerBullet
   - enemy
 =======
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   - water
   - bullet
   - Boss
   - rat
   - spikes
+<<<<<<< HEAD
+=======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   layers:
   - Default
   - TransparentFX
@@ -25,10 +31,14 @@ TagManager:
   - 
   - 
 <<<<<<< HEAD
+  - Floor
+=======
+<<<<<<< HEAD
   - PlayerLayer
 =======
   - Floor
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   - 
   - 
   - 
@@ -54,6 +64,11 @@ TagManager:
   - 
   m_SortingLayers:
 <<<<<<< HEAD
+  - name: Default
+    uniqueID: 0
+    locked: 0
+=======
+<<<<<<< HEAD
   - name: Ground
     uniqueID: 1790889883
     locked: 0
@@ -64,6 +79,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
   - name: background
     uniqueID: 3416742079
     locked: 0
@@ -82,4 +98,7 @@ TagManager:
   - name: weaponInventory
     uniqueID: 570624337
     locked: 0
+<<<<<<< HEAD
+=======
 >>>>>>> origin/Fernand
+>>>>>>> 73a6fbc797d85e76feff8a44458cdc5079d154ad
