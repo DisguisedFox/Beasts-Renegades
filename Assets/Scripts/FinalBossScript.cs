@@ -22,7 +22,10 @@ public class FinalBossScript : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Sprite spriteSmoke;
-
+    [SerializeField]
+    private GameObject playerTempTarget;
+    [SerializeField]
+    private GameObject vehicleTarget;
     // Use this for initialization
     void Start()
     {
@@ -74,6 +77,10 @@ public class FinalBossScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (!playerTempTarget.activeSelf)
+            target = vehicleTarget.transform;
+        else
+            target = playerTempTarget.transform;
         FollowTarget();
         spawn.rotation = Quaternion.LookRotation(Vector3.forward, target.position - spawn.position);
     }

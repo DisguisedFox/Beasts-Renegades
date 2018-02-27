@@ -294,7 +294,7 @@ public class InventoryController1 : MonoBehaviour
         {
 
 
-            if (PlayerController.getDirection().Equals("right"))
+            if (PlayerController.GetDirection().Equals("right"))
             {
 
                 displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
@@ -309,7 +309,7 @@ public class InventoryController1 : MonoBehaviour
         {
 
 
-            if (!PlayerController.getDirection().Equals("right"))
+            if (!PlayerController.GetDirection().Equals("right"))
             {
 
                 displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x + 0.20f, displayedWeaponRenderer.transform.position.y);
@@ -322,7 +322,7 @@ public class InventoryController1 : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
 
-            if (PlayerController.getDirection().Equals("right"))
+            if (PlayerController.GetDirection().Equals("right"))
             {
 
                 displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
@@ -332,7 +332,7 @@ public class InventoryController1 : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            if (PlayerController.getDirection().Equals("right"))
+            if (PlayerController.GetDirection().Equals("right"))
             {
                 displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
 

@@ -9,6 +9,8 @@ public class PauseController : MonoBehaviour {
     [SerializeField]
     Button exit;
     [SerializeField]
+    Transform PlayerTransform;
+    [SerializeField]
     GameObject canvasPause;
     
     bool continueBtn = true;
@@ -23,6 +25,8 @@ public class PauseController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        transform.position = PlayerTransform.position;
        if(Input.GetAxis("Vertical")!=0)
         {
             if(continueBtn)

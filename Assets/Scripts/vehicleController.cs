@@ -17,6 +17,7 @@ public class VehicleController : MonoBehaviour {
     [SerializeField]
     GameObject bulletSpawner;
 
+    private bool invincible=false;
     private Vector2 direction;
     [SerializeField]
     private Sprite spriteUp;
@@ -44,211 +45,348 @@ public class VehicleController : MonoBehaviour {
     static bool isAtBottom = true;
     static bool isAtLeft = false;
     
+    private float speedBullet=2f;
+    [SerializeField]
+    Canvas pauseCanvas;
     // Use this for initialization
     [SerializeField]
     private SpriteRenderer weapon;
     // Use this for initialization
     void Start ()
     {
-
+       
         StartCoroutine("ShieldVariate");
 
         canvasUI.worldCamera = GetComponent<Camera>();
-        
+
         playerLifes = PlayerPrefs.GetInt("lifes");
         PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
-            spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
+spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
+
         textLifes.text = TEXT_LIFES + playerLifes;
 
+       
 
+        
     }
-
+    private void FixedUpdate()
+    {
+        shoot();
+    }
     // Update is called once per frame
+
+       
+
+
     void Update ()
     {
         GetInput();
-        Move();
-        shoot();
-        ToggleInventory();
-        shield.transform.position = transform.position;
+        if (!pauseCanvas.isActiveAndEnabled)
+        {
+            Move();
+
+            ToggleInventory();
+            shield.transform.position = transform.position;
+        }
     }
     private void OnEnable()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         transform.position = player.transform.position;
         
         bulletPrefab.SetActive(false);
         playerLifes = PlayerPrefs.GetInt("lifes");
         textLifes.text = TEXT_LIFES + playerLifes;
+
+
+        if (PlayerController.GetDirection().Equals("bottom"))
+        {
+            RotationBottom();
+        }
+        else
+        {
+            if (PlayerController.GetDirection().Equals("left"))
+            {
+                RotationLeft();
+            }
+            else
+            {
+                if (PlayerController.GetDirection().Equals("right"))
+                {
+                    RotationRight();
+                }
+                else
+                {
+                    if (PlayerController.GetDirection().Equals("up"))
+                    {
+                        RotationUp();
+                    }
+                }
+            }
+        }
+
+        bulletSpawner.transform.position = weapon.transform.position;
     }
 
    
     private void GetInput()
     {
 
-        if(Input.GetButtonDown("vehicle"))
+        if (Input.GetButtonDown("Escape"))
         {
-            player.SetActive(true);
-            gameObject.SetActive(false);
-        }
-
-        if (Input.GetButtonDown("shield"))
-        {
-            if (!shield.activeSelf)
+            if (!pauseCanvas.gameObject.activeSelf)
             {
-                if (shieldBar.fillAmount > 0)
-                {
-                    shield.SetActive(true);
 
-                    //RAJOUTER INVINCIBILITE
-                }
+                pauseCanvas.gameObject.SetActive(true);
+                Time.timeScale = 0;
             }
             else
             {
-                shield.SetActive(false);
-
-                //ENLEVER INVINCIBILITE
-
+                pauseCanvas.gameObject.SetActive(false);
+                Time.timeScale = 1;
             }
         }
-        
-        direction = Vector2.zero;
-      
-        if (Input.GetKey(KeyCode.W))
+
+
+        if (!pauseCanvas.isActiveAndEnabled)
         {
-            spriteRenderer.sprite = spriteUp;
-            direction += Vector2.left;
-
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 90);
-            if (!isAtUp)
+            if (Input.GetButtonDown("vehicle"))
             {
-                weapon.transform.rotation = Quaternion.Euler(0, 0, 180);
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y+vehicleHalfSizeTopDown);
+                player.SetActive(true);
+                gameObject.SetActive(false);
             }
-            if (isAtBottom)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
 
-            }
-            if (isAtLeft)
+            if (Input.GetButtonDown("shield"))
             {
-                weapon.transform.position = new Vector3(weapon.transform.position.x + vehicleHalfSize, weapon.transform.position.y);
+                if (!shield.activeSelf && shieldBar.fillAmount == 1)
+                {
 
+                    if (shieldBar.fillAmount > 0)
+                    {
+                        shield.SetActive(true);
+                        invincible = true;
+                    }
+                }
+                else
+                {
+                    shield.SetActive(false);
+                    invincible = false;
+
+                }
             }
-            if (isAtRight)
+
+            direction = Vector2.zero;
+
+            if (Input.GetKey(KeyCode.W))
             {
-                weapon.transform.position = new Vector3(weapon.transform.position.x-vehicleHalfSize, weapon.transform.position.y);
-
+                RotationUp();
             }
-            if (isAtRight)
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                RotationLeft();
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                RotationBottom();
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                RotationRight();
+            }
+            bulletSpawner.transform.position = weapon.transform.position;
+        }
+    }
+    public void RotationBottom()
+    {
+        spriteRenderer.sprite = spriteDown;
+        direction += Vector2.right;
+        bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 270);
+        if (!isAtBottom)
+        {
+            weapon.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
+            }
+        }
+        if (isAtRight)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
                 weapon.transform.position = new Vector3(weapon.transform.position.x - vehicleHalfSize, weapon.transform.position.y);
-            isAtUp = true;
-            isAtRight = false;
-            isAtBottom = false;
-            isAtLeft = false;
+
+            }
+
         }
-
-        if (Input.GetKey(KeyCode.A))
+        if (isAtLeft)
         {
-            spriteRenderer.sprite = spriteLeft;
-            direction += Vector2.down;
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 180);
-            if (!isAtLeft)
-            {
-                weapon.transform.rotation = Quaternion.Euler(0, 0, 270);
-                weapon.transform.position = new Vector3(weapon.transform.position.x -vehicleHalfSize, weapon.transform.position.y);
-
-            }
-            if (isAtBottom)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
-
-            }
-            if (isAtRight)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x - vehicleHalfSize, weapon.transform.position.y);
-
-            }
-            if (isAtUp)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
-
-            }
-             isAtUp = false;
-            isAtRight = false;
-            isAtBottom = false;
-            isAtLeft = true;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            spriteRenderer.sprite = spriteDown;
-            direction += Vector2.right;
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 270);
-            if (!isAtBottom)
-            {
-                weapon.transform.rotation = Quaternion.Euler(0, 0, 0);
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y-vehicleHalfSizeTopDown);
-
-            }
-            if (isAtRight)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x-vehicleHalfSize, weapon.transform.position.y );
-
-            }
-            if (isAtLeft)
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
             {
                 weapon.transform.position = new Vector3(weapon.transform.position.x + vehicleHalfSize, weapon.transform.position.y);
 
             }
-            if (isAtUp)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
 
-            }
-            isAtUp = false;
-            isAtRight = false;
-            isAtBottom = true;
-            isAtLeft = false;
         }
-
-        if (Input.GetKey(KeyCode.D))
+        if (isAtUp)
         {
-
-            spriteRenderer.sprite = spriteRight;
-            direction += Vector2.up;
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 0);
-            if (!isAtRight)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x + vehicleHalfSize, weapon.transform.position.y);
-
-            }
-            if (isAtBottom)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x , weapon.transform.position.y+ vehicleHalfSizeTopDown);
-
-            }
-            if (isAtLeft)
-            {
-                weapon.transform.position = new Vector3(weapon.transform.position.x+vehicleHalfSize, weapon.transform.position.y );
-
-            }
-            if (isAtUp)
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
             {
                 weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
 
             }
-            if (!isAtRight)
-                weapon.transform.rotation = Quaternion.Euler(0, 0, 90);
-            isAtRight = true;
-            isAtUp = false;
-            isAtBottom = false;
-            isAtLeft = false;
+
         }
-        bulletSpawner.transform.position = weapon.transform.position;
+        isAtUp = false;
+        isAtRight = false;
+        isAtBottom = true;
+        isAtLeft = false;
     }
 
+    public void RotationUp()
+    {
+        spriteRenderer.sprite = spriteUp;
+        direction += Vector2.left;
+
+        bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 90);
+        if (!isAtUp)
+        {
+            weapon.transform.rotation = Quaternion.Euler(0, 0, 180);
+                if (!SceneManager.GetActiveScene().name.Equals("station"))
+                {
+                    weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
+                }
+            }
+        if (isAtBottom)
+        {
+            if(!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
+
+            }
+
+        }
+        if (isAtLeft)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x + vehicleHalfSize, weapon.transform.position.y);
+
+            }
+
+        }
+        if (isAtRight)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x - vehicleHalfSize, weapon.transform.position.y);
+
+            }
+
+        }
+        isAtUp = true;
+        isAtRight = false;
+        isAtBottom = false;
+        isAtLeft = false;
+    }
+
+    public void RotationLeft()
+    {
+        spriteRenderer.sprite = spriteLeft;
+        direction += Vector2.down;
+        bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 180);
+        if (!isAtLeft)
+        {
+            weapon.transform.rotation = Quaternion.Euler(0, 0, 270);
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x - vehicleHalfSize, weapon.transform.position.y);
+            }
+        }
+        if (isAtBottom)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
+
+            }
+            
+        }
+        if (isAtRight)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x - vehicleHalfSize, weapon.transform.position.y);
+
+            }
+
+        }
+        if (isAtUp)
+        {
+
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
+
+            }
+
+        }
+        isAtUp = false;
+        isAtRight = false;
+        isAtBottom = false;
+        isAtLeft = true;
+    }
+
+    public void RotationRight()
+    {
+        spriteRenderer.sprite = spriteRight;
+        direction += Vector2.up;
+        bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (!isAtRight)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x + vehicleHalfSize, weapon.transform.position.y);
+            }
+        }
+        if (isAtBottom)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
+
+            }
+           
+        }
+        if (isAtLeft)
+        {
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+
+                weapon.transform.position = new Vector3(weapon.transform.position.x + vehicleHalfSize, weapon.transform.position.y);
+            }
+        }
+        if (isAtUp)
+        {
+
+            if (!SceneManager.GetActiveScene().name.Equals("station"))
+            {
+
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
+            }
+        }
+        if (!isAtRight)
+            weapon.transform.rotation = Quaternion.Euler(0, 0, 90);
+        isAtRight = true;
+        isAtUp = false;
+        isAtBottom = false;
+        isAtLeft = false;
+    }
+    
     public void Move()
     {
     
@@ -282,7 +420,7 @@ public class VehicleController : MonoBehaviour {
             else
             {
                 shield.SetActive(false);
-                //ENLEVER INVINCIBILITE
+                invincible = false;
             }
         }
 
@@ -295,12 +433,12 @@ public class VehicleController : MonoBehaviour {
     }
     public void shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonUp("Space"))
         {
             GameObject bullet;
             bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
             bullet.SetActive(true);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletPrefab.transform.right * 5.0f;
+            bullet.GetComponent<Rigidbody2D>().velocity = bulletPrefab.transform.right * speedBullet;
             Destroy(bullet, 2.0f);
         }
     }
@@ -314,7 +452,7 @@ public class VehicleController : MonoBehaviour {
         }
         if (collision.tag == "health")
         {
-            PlayerHeal();
+           // PlayerHeal();
             Destroy(collision.gameObject);
         }
         if (collision.tag == "enemyMinon")
@@ -325,24 +463,28 @@ public class VehicleController : MonoBehaviour {
 
     public void PlayerDie()
     {
-        playerLifes--;
-        if (playerLifes <= 0)
+        if (!invincible)
         {
-            SceneManager.LoadScene("GameOver");
+            playerLifes--;
+            if (playerLifes <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                textLifes.text = TEXT_LIFES + playerLifes;
+            }
+            PlayerPrefs.SetInt("lifes", playerLifes);
         }
-        else
-        {
-            textLifes.text = TEXT_LIFES + playerLifes;
-        }
-        PlayerPrefs.SetInt("lifes", playerLifes);
     }
 
-    public void PlayerHeal()
+  /*  public void PlayerHeal()
     {
         playerLifes++;
         textLifes.text = TEXT_LIFES + playerLifes;
         PlayerPrefs.SetInt("lifes", playerLifes);
     }
+*/
     public void ToggleInventory()
     {
         if (!inventory.activeSelf && Input.GetButtonDown("backButton"))
@@ -372,7 +514,7 @@ public class VehicleController : MonoBehaviour {
             return "up";
         if (isAtLeft)
             return "left";
-        if (isAtBottom)
+        if (isAtRight)
             return "right";
 
         return "bottom";

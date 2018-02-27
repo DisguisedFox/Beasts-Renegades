@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private Sprite spriteRight;
     private SpriteRenderer spriteRenderer;
-
+    [SerializeField]
+    Canvas pauseCanvas;
+    private bool invincible = false;
     private int playerLifes = 3;
     [SerializeField]
     private Text textLifes;
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour {
     private SpriteRenderer weapon;
     void Start()
     {
-
+        
         StartCoroutine("ShieldVariate");
         if (sceneStart)
         {
@@ -96,13 +98,16 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
-        GetInput();
-        Move();
-        shoot();
-        ToggleInventory();
-        shield.transform.position = transform.position;
-    }
+       
+            GetInput();
+        if (!pauseCanvas.isActiveAndEnabled)
+        {
+            Move();
+            shoot();
+            ToggleInventory();
+            shield.transform.position = transform.position;
+        }
+     }
 
     public void Move()
     {
@@ -136,7 +141,7 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 shield.SetActive(false);
-                //ENLEVER INVINCIBILITE
+                invincible = false;
             }
         }
 
@@ -145,96 +150,112 @@ public class PlayerController : MonoBehaviour {
 
     private void GetInput()
     {
-
-        if (Input.GetButtonDown("shield"))
+        
+            if (Input.GetButtonDown("Escape"))
         {
-            if (!shield.activeSelf)
+            if (!pauseCanvas.gameObject.activeSelf)
             {
-                if (shieldBar.fillAmount > 0)
-                {
-                    shield.SetActive(true);
 
-                    //RAJOUTER INVINCIBILITE
-                }
+                pauseCanvas.gameObject.SetActive(true);
+                Time.timeScale = 0;
             }
             else
             {
-                    shield.SetActive(false);
-
-                    //ENLEVER INVINCIBILITE
-                
+                pauseCanvas.gameObject.SetActive(false);
+                Time.timeScale = 1;
             }
         }
 
-        if (Input.GetButtonDown("vehicle"))
-        {
-                    vehicle.SetActive(true);
+        if (!pauseCanvas.isActiveAndEnabled)
+           {
+            if (Input.GetButtonDown("shield"))
+            {
+                if (!shield.activeSelf && shieldBar.fillAmount == 1)
+                {
+                    if (shieldBar.fillAmount > 0)
+                    {
+                        shield.SetActive(true);
+
+                        invincible = true;
+                    }
+                }
+                else
+                {
+                    shield.SetActive(false);
+
+                    invincible = false;
+                }
+            }
+
+            if (Input.GetButtonDown("vehicle"))
+            {
+                vehicle.SetActive(true);
                 gameObject.SetActive(false);
-                    //RAJOUTER INVINCIBILITE
-          
-        }
-        direction = Vector2.zero;
-       
-        if (Input.GetKey(KeyCode.W))
-        {
-            spriteRenderer.sprite = spriteUp;
-            direction += Vector2.up;
-          
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0 , 90);
-            if(!isAtUp)
-            weapon.transform.rotation= Quaternion.Euler(0, 0, 180);
-            if (isAtRight)
-                weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
-            isAtUp = true;
-            isAtRight = false;
-            isAtBottom = false;
-            isAtLeft = false;
-        }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            spriteRenderer.sprite = spriteLeft;
-            direction += Vector2.left;
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 180);
-            if (!isAtLeft)
-                weapon.transform.rotation= Quaternion.Euler(0, 0, 270);
-            if (isAtRight)
-                weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
-            isAtUp = false;
-            isAtRight = false;
-            isAtBottom = false;
-            isAtLeft = true;
-        }
+            }
+            direction = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            spriteRenderer.sprite = spriteDown;
-            direction += Vector2.down;
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 270);
-            if (!isAtBottom)
-                weapon.transform.rotation = Quaternion.Euler(0, 0, 0);
-            if (isAtRight)
-            weapon.transform.position = new Vector3(weapon.transform.position.x-0.20f, weapon.transform.position.y);
-            isAtUp = false;
-            isAtRight = false;
-            isAtBottom = true;
-            isAtLeft = false;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                spriteRenderer.sprite = spriteUp;
+                direction += Vector2.up;
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            
-            spriteRenderer.sprite = spriteRight;
-            direction += Vector2.right;
-            bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 0);
-            if(!isAtRight)
-          weapon.transform.position = new Vector3(weapon.transform.position.x +0.20f, weapon.transform.position.y);
-            if(!isAtRight)
-                weapon.transform.rotation = Quaternion.Euler(0, 0, 90);
-            isAtRight = true;
-            isAtUp = false;
-            isAtBottom = false;
-            isAtLeft = false;
+                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 90);
+                if (!isAtUp)
+                    weapon.transform.rotation = Quaternion.Euler(0, 0, 180);
+                if (isAtRight)
+                    weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
+                isAtUp = true;
+                isAtRight = false;
+                isAtBottom = false;
+                isAtLeft = false;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                spriteRenderer.sprite = spriteLeft;
+                direction += Vector2.left;
+                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 180);
+                if (!isAtLeft)
+                    weapon.transform.rotation = Quaternion.Euler(0, 0, 270);
+                if (isAtRight)
+                    weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
+                isAtUp = false;
+                isAtRight = false;
+                isAtBottom = false;
+                isAtLeft = true;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                spriteRenderer.sprite = spriteDown;
+                direction += Vector2.down;
+                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 270);
+                if (!isAtBottom)
+                    weapon.transform.rotation = Quaternion.Euler(0, 0, 0);
+                if (isAtRight)
+                    weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
+                isAtUp = false;
+                isAtRight = false;
+                isAtBottom = true;
+                isAtLeft = false;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+
+                spriteRenderer.sprite = spriteRight;
+                direction += Vector2.right;
+                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 0);
+                if (!isAtRight)
+                    weapon.transform.position = new Vector3(weapon.transform.position.x + 0.20f, weapon.transform.position.y);
+                if (!isAtRight)
+                    weapon.transform.rotation = Quaternion.Euler(0, 0, 90);
+                isAtRight = true;
+                isAtUp = false;
+                isAtBottom = false;
+                isAtLeft = false;
+            }
         }
     }
 
@@ -270,16 +291,19 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerDie()
     {
-        playerLifes--;
-        if (playerLifes <= 0)
+        if (!invincible)
         {
-            SceneManager.LoadScene("GameOver");
+            playerLifes--;
+            if (playerLifes <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                textLifes.text = TEXT_LIFES + playerLifes;
+            }
+            PlayerPrefs.SetInt("lifes", playerLifes);
         }
-        else
-        {
-            textLifes.text = TEXT_LIFES + playerLifes;
-        }
-        PlayerPrefs.SetInt("lifes", playerLifes);
     }
 
     public void PlayerHeal()
@@ -309,7 +333,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    public static string getDirection()
+    public static string GetDirection()
     {
         if (isAtBottom)
             return "bottom";
@@ -317,7 +341,7 @@ public class PlayerController : MonoBehaviour {
             return "up";
         if (isAtLeft)
             return "left";
-        if (isAtBottom)
+        if (isAtRight)
             return "right";
 
         return "bottom";

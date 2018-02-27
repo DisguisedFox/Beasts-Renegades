@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-
     [SerializeField]
     private float radius;
     [SerializeField]
@@ -14,14 +13,23 @@ public class EnemyScript : MonoBehaviour {
     [SerializeField]
     private GameObject lifePrefab;
     private int enemyLifes = 3;
+    private bool invincible = false;
+    SpriteRenderer rend;
 
-
-
-   private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-         if (collision.tag == "playerBullet")
+        rend = GetComponent<SpriteRenderer>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "playerBullet")
         {
-            EnemyDie();
+            if (!invincible)
+            {
+                EnemyDie();
+                Invoke("resetInvulnerability", 1);
+                invincible = true;
+            }
             Destroy(collision.gameObject);
         }
     }
@@ -60,5 +68,23 @@ public class EnemyScript : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    private void resetInvulnerability()
+    {
+        invincible = false;
+    }
+    public IEnumerator InvincibleVisual()
+    {
+        if (invincible)
+        {
+            while (invincible)
+            {
+                rend.enabled = false;
+                yield return new WaitForSeconds(0.1f);
+                rend.enabled = true;
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
     }
 }
