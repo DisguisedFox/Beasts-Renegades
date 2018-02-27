@@ -26,11 +26,7 @@ public class GameOverController : MonoBehaviour {
 
     private void continueGame()
     {
-        //adapter la methode quand on aura toute les scènes du jeu
-        if (!PlayerPrefs.GetString("lastLoadedScene").Equals("station"))
-        {
-            SceneManager.LoadScene("station");
-        }
+        //scene2,3 etc
     }
 
     // Update is called once per frame

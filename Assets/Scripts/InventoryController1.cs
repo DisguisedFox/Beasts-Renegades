@@ -14,46 +14,28 @@ public class InventoryController1 : MonoBehaviour
     SpriteRenderer slotBckgrnd4;
 
 
-   
-    
-    [SerializeField]
-    GameObject weapon2;
-    [SerializeField]
-    GameObject weapon3;
-    [SerializeField]
-    GameObject weapon4;
 
+    [SerializeField]
+    SpriteRenderer weapon;
+    [SerializeField]
+    SpriteRenderer weapon2;
+    [SerializeField]
+    SpriteRenderer weapon3;
+    [SerializeField]
+    SpriteRenderer weapon4;
+
+    [SerializeField]
+    SpriteRenderer displayedWeaponRenderer;
     bool weaponChanged=false;
     // Use this for initialization
     void Start()
     {
-        
 
-        if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("planete1")))
-        {
-            slotBckgrnd2.gameObject.SetActive(false);
-            slotBckgrnd3.gameObject.SetActive(false);
-            slotBckgrnd4.gameObject.SetActive(false);
-        }
-        if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("planete2")))
-        {
-            slotBckgrnd2.gameObject.SetActive(true);
-            slotBckgrnd3.gameObject.SetActive(false);
-            slotBckgrnd4.gameObject.SetActive(false);
-        }
-        if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("planete3")))
-        {
-            slotBckgrnd2.gameObject.SetActive(true);
-            slotBckgrnd3.gameObject.SetActive(true);
-            slotBckgrnd4.gameObject.SetActive(false);
-        }
-        if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("planete4")))
-        {
-            slotBckgrnd2.gameObject.SetActive(true);
-            slotBckgrnd3.gameObject.SetActive(true);
-            slotBckgrnd4.gameObject.SetActive(true);
-        }
-
+            //modifiable selon les choix d'activation des armes
+        slotBckgrnd2.gameObject.SetActive(true);
+        slotBckgrnd3.gameObject.SetActive(true);
+        slotBckgrnd4.gameObject.SetActive(true);
+        slotBckgrnd.gameObject.SetActive(true);
 
     }
 
@@ -68,9 +50,10 @@ public class InventoryController1 : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            if (Input.GetAxisRaw("Horizontal")>0)
+            if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
             {
                 weaponChanged = true;
+
                 if (!slotBckgrnd.color.Equals(Color.white))
                 {
                     if (slotBckgrnd2.gameObject.activeSelf)
@@ -79,67 +62,282 @@ public class InventoryController1 : MonoBehaviour
                         slotBckgrnd2.color = Color.yellow;
                     }
                 }
-                if (!slotBckgrnd2.color.Equals(Color.white))
+                else
                 {
+                    if (!slotBckgrnd2.color.Equals(Color.white))
+                    {
 
-                    if (slotBckgrnd3.gameObject.activeSelf)
-                    {
-                        slotBckgrnd2.color = Color.white;
-                        slotBckgrnd3.color = Color.yellow;
+                        if (slotBckgrnd3.gameObject.activeSelf)
+                        {
+                            slotBckgrnd2.color = Color.white;
+                            slotBckgrnd3.color = Color.yellow;
+                        }
                     }
-                }
-                if (!slotBckgrnd3.color.Equals(Color.white))
-                {
-                    if (slotBckgrnd4.gameObject.activeSelf)
+                    else
                     {
-                        slotBckgrnd3.color = Color.white;
-                        slotBckgrnd4.color = Color.yellow;
-                    }
-                }
-                if (!slotBckgrnd4.color.Equals(Color.white))
-                {
-                    if (slotBckgrnd.gameObject.activeSelf)
-                    {
-                        slotBckgrnd4.color = Color.white;
-                        slotBckgrnd.color = Color.yellow;
+                        if (!slotBckgrnd3.color.Equals(Color.white))
+                        {
+                            if (slotBckgrnd4.gameObject.activeSelf)
+                            {
+                                slotBckgrnd3.color = Color.white;
+                                slotBckgrnd4.color = Color.yellow;
+                            }
+                        }
+                        else
+                        {
+                            if (!slotBckgrnd4.color.Equals(Color.white))
+                            {
+                                if (slotBckgrnd.gameObject.activeSelf)
+                                {
+                                    slotBckgrnd4.color = Color.white;
+                                    slotBckgrnd.color = Color.yellow;
+                                }
+                            }
+                        }
                     }
                 }
             }
+            else
+            {
+
+                if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
+                {
+                    weaponChanged = true;
+                    if (!slotBckgrnd.color.Equals(Color.white))
+                    {
+                        if (slotBckgrnd4.gameObject.activeSelf)
+                        {
+                            slotBckgrnd.color = Color.white;
+                            slotBckgrnd4.color = Color.yellow;
+                        }
+                    }
+                    else
+                    {
+                        if (!slotBckgrnd2.color.Equals(Color.white))
+                        {
+
+                            if (slotBckgrnd.gameObject.activeSelf)
+                            {
+                                slotBckgrnd2.color = Color.white;
+                                slotBckgrnd.color = Color.yellow;
+                            }
+                        }
+                        else
+                        {
+                            if (!slotBckgrnd3.color.Equals(Color.white))
+                            {
+                                if (slotBckgrnd2.gameObject.activeSelf)
+                                {
+                                    slotBckgrnd3.color = Color.white;
+                                    slotBckgrnd2.color = Color.yellow;
+                                }
+                            }
+                            else
+                            {
+                                if (!slotBckgrnd4.color.Equals(Color.white))
+                                {
+                                    if (slotBckgrnd3.gameObject.activeSelf)
+                                    {
+                                        slotBckgrnd4.color = Color.white;
+                                        slotBckgrnd3.color = Color.yellow;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    
+                    if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+                    {
+                        weaponChanged = true;
+                        if (!slotBckgrnd.color.Equals(Color.white))
+                        {
+                            Debug.Log(12);
+                            if (slotBckgrnd3.gameObject.activeSelf)
+                            {
+                                Debug.Log(13);
+                                slotBckgrnd.color = Color.white;
+                                slotBckgrnd3.color = Color.yellow;
+                            }
+                        }
+                        else
+                        {
+                            if (!slotBckgrnd2.color.Equals(Color.white))
+                            {
+
+                                if (slotBckgrnd4.gameObject.activeSelf)
+                                {
+                                    slotBckgrnd2.color = Color.white;
+                                    slotBckgrnd4.color = Color.yellow;
+                                }
+                            }
+                            else
+                            {
+                                if (!slotBckgrnd3.color.Equals(Color.white))
+                                {
+                                    if (slotBckgrnd.gameObject.activeSelf)
+                                    {
+                                        slotBckgrnd3.color = Color.white;
+                                        slotBckgrnd.color = Color.yellow;
+                                    }
+                                }
+                                else
+                                {
+                                    if (!slotBckgrnd4.color.Equals(Color.white))
+                                    {
+                                        if (slotBckgrnd2.gameObject.activeSelf)
+                                        {
+                                            slotBckgrnd4.color = Color.white;
+                                            slotBckgrnd2.color = Color.yellow;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0)
+                        {
+                            weaponChanged = true;
+                            if (!slotBckgrnd.color.Equals(Color.white))
+                            {
+                                if (slotBckgrnd3.gameObject.activeSelf)
+                                {
+                                    slotBckgrnd.color = Color.white;
+                                    slotBckgrnd3.color = Color.yellow;
+                                }
+                            }
+                            else
+                            {
+                                if (!slotBckgrnd2.color.Equals(Color.white))
+                                {
+
+                                    if (slotBckgrnd4.gameObject.activeSelf)
+                                    {
+                                        slotBckgrnd2.color = Color.white;
+                                        slotBckgrnd4.color = Color.yellow;
+                                    }
+                                }
+                                else
+                                {
+                                    if (!slotBckgrnd3.color.Equals(Color.white))
+                                    {
+                                        if (slotBckgrnd.gameObject.activeSelf)
+                                        {
+                                            slotBckgrnd3.color = Color.white;
+                                            slotBckgrnd.color = Color.yellow;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (!slotBckgrnd4.color.Equals(Color.white))
+                                        {
+                                            if (slotBckgrnd2.gameObject.activeSelf)
+                                            {
+                                                slotBckgrnd4.color = Color.white;
+                                                slotBckgrnd2.color = Color.yellow;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                         }
+
+                    }
+                 }
+             }
+                    
+                
+
+            
+            
            
             if (weaponChanged)
             {
                 
                 if (slotBckgrnd.color.Equals(Color.yellow))
                 {
-                   
-                    weapon2.SetActive(false);
-                    weapon3.SetActive(false);
-                    weapon4.SetActive(false);
+
+                    displayedWeaponRenderer.sprite=weapon.sprite;
+                    
 
                 }
                 if (slotBckgrnd2.color.Equals(Color.yellow))
                 {
-                    weapon2.SetActive(true);
-                    weapon3.SetActive(false);
-                    weapon4.SetActive(false);
+                    displayedWeaponRenderer.sprite = weapon2.sprite;
+                    
+
                 }
                 if (slotBckgrnd3.color.Equals(Color.yellow))
                 {
-                    weapon2.SetActive(false);
-                    weapon3.SetActive(true);
-                    weapon4.SetActive(false);
+                    displayedWeaponRenderer.sprite = weapon3.sprite;
+
                 }
                 if (slotBckgrnd4.color.Equals(Color.yellow))
                 {
-                    weapon2.SetActive(false);
-                    weapon3.SetActive(false);
-                    weapon4.SetActive(true);
+                    displayedWeaponRenderer.sprite = weapon4.sprite;
+                    
                 }
-               
+                RotateWeapon();
             }
             weaponChanged = false;
         }
     }
     
-    
+    public void RotateWeapon()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+
+
+            if (PlayerController.getDirection().Equals("right"))
+            {
+
+                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
+
+            }
+
+            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+
+
+        if (Input.GetKey(KeyCode.D))
+        {
+
+
+            if (!PlayerController.getDirection().Equals("right"))
+            {
+
+                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x + 0.20f, displayedWeaponRenderer.transform.position.y);
+
+            }
+
+            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+
+            if (PlayerController.getDirection().Equals("right"))
+            {
+
+                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
+
+            }
+            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (PlayerController.getDirection().Equals("right"))
+            {
+                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
+
+            }
+            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
+        }
+    }
 }
