@@ -1,0 +1,1072 @@
+fileFormatVersion: 2
+guid: f919544b69f4d694ba5a60ddf4be41be
+timeCreated: 1519816113
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Frozen_Ring_03_0
+    21300002: Frozen_Ring_03_1
+    21300004: Frozen_Ring_03_2
+    21300006: Frozen_Ring_03_3
+    21300008: Frozen_Ring_03_4
+    21300010: Frozen_Ring_03_5
+    21300012: Frozen_Ring_03_6
+    21300014: Frozen_Ring_03_7
+    21300016: Frozen_Ring_03_8
+    21300018: Frozen_Ring_03_9
+    21300020: Frozen_Ring_03_10
+    21300022: Frozen_Ring_03_11
+    21300024: Frozen_Ring_03_12
+    21300026: Frozen_Ring_03_13
+    21300028: Frozen_Ring_03_14
+    21300030: Frozen_Ring_03_15
+    21300032: Frozen_Ring_03_16
+    21300034: Frozen_Ring_03_17
+    21300036: Frozen_Ring_03_18
+    21300038: Frozen_Ring_03_19
+    21300040: Frozen_Ring_03_20
+    21300042: Frozen_Ring_03_21
+    21300044: Frozen_Ring_03_22
+    21300046: Frozen_Ring_03_23
+    21300048: Frozen_Ring_03_24
+    21300050: Frozen_Ring_03_25
+    21300052: Frozen_Ring_03_26
+    21300054: Frozen_Ring_03_27
+    21300056: Frozen_Ring_03_28
+    21300058: Frozen_Ring_03_29
+    21300060: Frozen_Ring_03_30
+    21300062: Frozen_Ring_03_31
+    21300064: Frozen_Ring_03_32
+    21300066: Frozen_Ring_03_33
+    21300068: Frozen_Ring_03_34
+    21300070: Frozen_Ring_03_35
+    21300072: Frozen_Ring_03_36
+    21300074: Frozen_Ring_03_37
+    21300076: Frozen_Ring_03_38
+    21300078: Frozen_Ring_03_39
+    21300080: Frozen_Ring_03_40
+    21300082: Frozen_Ring_03_41
+    21300084: Frozen_Ring_03_42
+    21300086: Frozen_Ring_03_43
+    21300088: Frozen_Ring_03_44
+    21300090: Frozen_Ring_03_45
+    21300092: Frozen_Ring_03_46
+    21300094: Frozen_Ring_03_47
+    21300096: Frozen_Ring_03_48
+    21300098: Frozen_Ring_03_49
+    21300100: Frozen_Ring_03_50
+    21300102: Frozen_Ring_03_51
+    21300104: Frozen_Ring_03_52
+    21300106: Frozen_Ring_03_53
+    21300108: Frozen_Ring_03_54
+    21300110: Frozen_Ring_03_55
+    21300112: Frozen_Ring_03_56
+    21300114: Frozen_Ring_03_57
+    21300116: Frozen_Ring_03_58
+    21300118: Frozen_Ring_03_59
+    21300120: Frozen_Ring_03_60
+    21300122: Frozen_Ring_03_61
+    21300124: Frozen_Ring_03_62
+    21300126: Frozen_Ring_03_63
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 33
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 33
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: WP8
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Frozen_Ring_03_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1801
+        width: 234
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_1
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1802
+        width: 233
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_2
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1803
+        width: 231
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_3
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1804
+        width: 232
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_4
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1808
+        width: 230
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_5
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 1810
+        width: 228
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_6
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 1811
+        width: 225
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_7
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 1809
+        width: 224
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1550
+        width: 223
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_9
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1549
+        width: 223
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_10
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1548
+        width: 224
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_11
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1547
+        width: 225
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_12
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1547
+        width: 227
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_13
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1547
+        width: 229
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_14
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 1547
+        width: 230
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_15
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 1547
+        width: 232
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1291
+        width: 236
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_17
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1293
+        width: 240
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_18
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1295
+        width: 244
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_19
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1294
+        width: 246
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_20
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1293
+        width: 248
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_21
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 1291
+        width: 249
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_22
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1290
+        width: 251
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_23
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 1290
+        width: 251
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_24
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1030
+        width: 247
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_25
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1029
+        width: 244
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_26
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1027
+        width: 242
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_27
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1025
+        width: 242
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_28
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1025
+        width: 242
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_29
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 1024
+        width: 242
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_30
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1025
+        width: 238
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_31
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 1024
+        width: 234
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_32
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 768
+        width: 232
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_33
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 769
+        width: 232
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_34
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 768
+        width: 230
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_35
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 770
+        width: 233
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_36
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 773
+        width: 237
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_37
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 775
+        width: 239
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_38
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 774
+        width: 241
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_39
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 774
+        width: 243
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_40
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 517
+        width: 243
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_41
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 518
+        width: 245
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_42
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 519
+        width: 243
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_43
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 519
+        width: 243
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_44
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 518
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_45
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 519
+        width: 239
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_46
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 522
+        width: 236
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_47
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 524
+        width: 235
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_48
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 269
+        width: 236
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_49
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 267
+        width: 236
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_50
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 265
+        width: 234
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_51
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 265
+        width: 233
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_52
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 263
+        width: 232
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_53
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 263
+        width: 230
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_54
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 265
+        width: 231
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_55
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 266
+        width: 230
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_56
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 11
+        width: 230
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_57
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 10
+        width: 232
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_58
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 11
+        width: 231
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_59
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 9
+        width: 230
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_60
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 9
+        width: 231
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_61
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 10
+        width: 233
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_62
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 10
+        width: 234
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Frozen_Ring_03_63
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 9
+        width: 235
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

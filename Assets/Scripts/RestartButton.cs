@@ -14,7 +14,7 @@ public class RestartButton : MonoBehaviour {
     }
     void Load()
     {
-        SceneManager.LoadScene("planete1");
+        SceneManager.LoadScene(PlayerPrefs.GetString("lastLoadedScene"));
     }
     public void Uptdate  () {
 

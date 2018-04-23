@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class PauseController : MonoBehaviour {
 
     [SerializeField]
     Button play;
     [SerializeField]
     Button exit;
+    [SerializeField]
+    Transform PlayerTransform;
     [SerializeField]
     GameObject canvasPause;
     
@@ -23,6 +27,8 @@ public class PauseController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        transform.position = PlayerTransform.position;
        if(Input.GetAxis("Vertical")!=0)
         {
             if(continueBtn)
@@ -48,7 +54,7 @@ public class PauseController : MonoBehaviour {
 
     void exitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("StartMenu");
     }
 }
 

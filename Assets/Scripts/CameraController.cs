@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
     [SerializeField]
-    private GameObject player;
+    GameObject player;
     [SerializeField]
-    private GameObject vehicle;
-    private Vector3 offset;         //Private variable to store the offset distance between the player and camera
-
+    GameObject vehicle;
     // Use this for initialization
-    void Start()
+    void Start ()
     {
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = transform.position - player.transform.position;
-    }
-
-    // LateUpdate is called after Update each frame
-    void LateUpdate()
+		
+	}
+	
+	// Update is called once per frame
+	void Update ()
     {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        if(player.activeSelf)
-        transform.position = player.transform.position + offset;
+        if (player.activeSelf)
+            transform.position = player.transform.position;
         else
-            transform.position = vehicle.transform.position + offset;
+            transform.position = vehicle.transform.position;
 
     }
 }

@@ -14,7 +14,7 @@ public class RestartBoutton : MonoBehaviour {
     }
     void Load()
     {
-        SceneManager.LoadScene("planete1");
+        SceneManager.LoadScene("station");
     }
     public void Uptdate  () {
 
