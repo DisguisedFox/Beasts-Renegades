@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 public class InventoryController1 : MonoBehaviour
 {
     [SerializeField]
+    Animator animatorBullet;
+    [SerializeField]
+    RuntimeAnimatorController animBullet1;
+    [SerializeField]
+    RuntimeAnimatorController animBullet2;
+    [SerializeField]
+    RuntimeAnimatorController animBullet3;
+    [SerializeField]
+    RuntimeAnimatorController animBullet4;
+    [SerializeField]
     SpriteRenderer slotBckgrnd;
     [SerializeField]
     SpriteRenderer slotBckgrnd2;
@@ -12,17 +22,12 @@ public class InventoryController1 : MonoBehaviour
     SpriteRenderer slotBckgrnd3;
     [SerializeField]
     SpriteRenderer slotBckgrnd4;
-
+ 
 
 
     [SerializeField]
     SpriteRenderer weapon;
-    [SerializeField]
-    SpriteRenderer weapon2;
-    [SerializeField]
-    SpriteRenderer weapon3;
-    [SerializeField]
-    SpriteRenderer weapon4;
+   
 
     [SerializeField]
     SpriteRenderer displayedWeaponRenderer;
@@ -30,8 +35,11 @@ public class InventoryController1 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-            //modifiable selon les choix d'activation des armes
+        animBullet1 = (RuntimeAnimatorController)Resources.Load("Animations/bullet1");
+        animBullet1 = (RuntimeAnimatorController)Resources.Load("Animations/bullet2");
+        animBullet1 = (RuntimeAnimatorController)Resources.Load("Animations/bullet3");
+        animBullet1 = (RuntimeAnimatorController)Resources.Load("Animations/bullet4");
+        //modifiable selon les choix d'activation des armes
         slotBckgrnd2.gameObject.SetActive(true);
         slotBckgrnd3.gameObject.SetActive(true);
         slotBckgrnd4.gameObject.SetActive(true);
@@ -262,82 +270,33 @@ public class InventoryController1 : MonoBehaviour
                 if (slotBckgrnd.color.Equals(Color.yellow))
                 {
 
-                    displayedWeaponRenderer.sprite=weapon.sprite;
-                    
+                    PlayerController.SetSpeedBullet(1f);
+                    animatorBullet.runtimeAnimatorController = animBullet1;
 
                 }
                 if (slotBckgrnd2.color.Equals(Color.yellow))
                 {
-                    displayedWeaponRenderer.sprite = weapon2.sprite;
-                    
-
+                   
+                    PlayerController.SetSpeedBullet(3.5f);
+                    animatorBullet.runtimeAnimatorController = animBullet2;
                 }
                 if (slotBckgrnd3.color.Equals(Color.yellow))
                 {
-                    displayedWeaponRenderer.sprite = weapon3.sprite;
-
+                    
+                    PlayerController.SetSpeedBullet(7f);
+                    animatorBullet.runtimeAnimatorController = animBullet3;
                 }
                 if (slotBckgrnd4.color.Equals(Color.yellow))
                 {
-                    displayedWeaponRenderer.sprite = weapon4.sprite;
-                    
+                  
+                    PlayerController.SetSpeedBullet(15f);
+                    animatorBullet.runtimeAnimatorController = animBullet4;
                 }
-                RotateWeapon();
+                
             }
             weaponChanged = false;
         }
     }
     
-    public void RotateWeapon()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-
-
-            if (PlayerController.GetDirection().Equals("right"))
-            {
-
-                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
-
-            }
-
-            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-
-
-        if (Input.GetKey(KeyCode.D))
-        {
-
-
-            if (!PlayerController.GetDirection().Equals("right"))
-            {
-
-                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x + 0.20f, displayedWeaponRenderer.transform.position.y);
-
-            }
-
-            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-
-            if (PlayerController.GetDirection().Equals("right"))
-            {
-
-                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
-
-            }
-            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            if (PlayerController.GetDirection().Equals("right"))
-            {
-                displayedWeaponRenderer.transform.position = new Vector3(displayedWeaponRenderer.transform.position.x - 0.20f, displayedWeaponRenderer.transform.position.y);
-
-            }
-            displayedWeaponRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
-        }
-    }
+   
 }

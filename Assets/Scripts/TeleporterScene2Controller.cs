@@ -9,7 +9,9 @@ public class TeleporterScene2Controller : MonoBehaviour {
     GameObject vehicle;
     [SerializeField]
     GameObject player;
-    
+    [SerializeField]
+    AudioSource teleportSound;
+
     Camera cameraMain;
     float foVInitial;
     float fullMapFoV = 95.8f;
@@ -35,7 +37,7 @@ public class TeleporterScene2Controller : MonoBehaviour {
         if (collision.gameObject.tag.Equals("Player"))
         {
             StartCoroutine("CameraAnim", collision.gameObject);
-
+            teleportSound.Play();
         }
     }
 

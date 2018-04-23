@@ -20,15 +20,14 @@ public class Boss2Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        StartCoroutine("SetReady");
+       
         StartCoroutine("Shoot");
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(ready)
-        Teleport();
+       
 	}
 
     private IEnumerator Shoot()
@@ -43,25 +42,10 @@ public class Boss2Controller : MonoBehaviour {
         yield return new WaitForSeconds(1.5f);
         StartCoroutine("Shoot");
     }
-    private IEnumerator SetReady()
-    {
-        
-        yield return new WaitForSeconds(2f);
-        ready = true;
-    }
-    private void Teleport()
-    {
-        float diffX = Mathf.Abs(Mathf.Abs(transform.position.x)- Mathf.Abs(player.transform.position.x));
-        float diffY = Mathf.Abs(Mathf.Abs(transform.position.y)- Mathf.Abs(player.transform.position.y));
-        if (diffX < 0.0005f||diffY<0.0005f)
-        { 
-        float scaleMove = 1.5f;
-        transform.position = player.transform.position - new Vector3(player.transform.right.x + scaleMove, player.transform.right.y + scaleMove);
-            ready = false;
-    }
+   
 
 
-    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag.Equals("playerBullet"))

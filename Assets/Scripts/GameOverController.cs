@@ -10,25 +10,18 @@ public class GameOverController : MonoBehaviour {
     Button play;
     [SerializeField]
     Button exit;
-   
-    Button next;
+    [SerializeField]
+    AudioSource btnSound;
+ 
     // Use this for initialization
     void Start()
     {
         play.onClick.AddListener(() => loadGame());
         exit.onClick.AddListener(() => exitGame());
-        if (gameObject.scene.Equals("Victory"))
-        {
-            next = GameObject.Find("Continue").GetComponent<Button>();
-            next.onClick.AddListener(() => continueGame());
-        }
+        
     }
 
-    private void continueGame()
-    {
-        //scene2,3 etc
-    }
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -37,13 +30,18 @@ public class GameOverController : MonoBehaviour {
 
   private  void loadGame()
     {
+        btnSound.Play();
         //A changer pour loader la station en premier
         SceneManager.LoadScene(PlayerPrefs.GetString("lastLoadedScene"));
     }
 
    private void exitGame()
     {
-        Application.Quit();
+        btnSound.Play();
+        if (SceneManager.GetActiveScene().Equals("GameOver"))
+            SceneManager.LoadScene("StartMenu");
+        else
+            Application.Quit();
     }
 }
 

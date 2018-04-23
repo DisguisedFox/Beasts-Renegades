@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField]
+    AudioSource heartSound;
+    [SerializeField]
     Canvas canvasUI;
     [SerializeField]
     private float speed;
     [SerializeField]
+    private AudioSource shieldSound;
+    [SerializeField]
     GameObject bulletPrefab;
     [SerializeField]
     GameObject bulletSpawner;
-   
+    private float space = 0.1f;
     private Vector2 direction;
     [SerializeField]
     private Sprite spriteUp;
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     Image shieldBar;
     [SerializeField]
     GameObject shield;
+    public static float speedBullet=2.5f;
     static bool isAtRight=false;
    static bool isAtUp = false;
     static bool isAtBottom= true;
@@ -45,12 +50,15 @@ public class PlayerController : MonoBehaviour {
     bool sceneStart = true;
     [SerializeField]
     GameObject vehicle;
+    
     // Use this for initialization
     [SerializeField]
     private SpriteRenderer weapon;
+    private bool coroutineIsLooping = false;
+    private SpriteRenderer rend;
     void Start()
     {
-        
+        rend=GetComponent<SpriteRenderer>();
         StartCoroutine("ShieldVariate");
         if (sceneStart)
         {
@@ -75,8 +83,12 @@ public class PlayerController : MonoBehaviour {
             spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
         textLifes.text = TEXT_LIFES + playerLifes;
     }
+
+    
     private void OnEnable()
     {
+        
+        StartCoroutine("ShieldVariate");
         canvasUI.worldCamera = gameObject.GetComponent<Camera>();
         transform.position = vehicle.transform.position;
         
@@ -99,15 +111,36 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
        
-            GetInput();
-        if (!pauseCanvas.isActiveAndEnabled)
+           
+        if (!pauseCanvas.isActiveAndEnabled&&!inventory.activeSelf)
         {
             Move();
             shoot();
-            ToggleInventory();
+            GetInput();
             shield.transform.position = transform.position;
+            
         }
-     }
+        ToggleInventory();
+    }
+
+
+    public IEnumerator InvincibleVisual()
+    {
+        
+            while (invincible)
+            {
+                coroutineIsLooping = true;
+                rend.enabled = false;
+                yield return new WaitForSeconds(0.1f);
+                rend.enabled = true;
+                yield return new WaitForSeconds(0.1f);
+            }
+         
+    }
+    private void resetInvulnerability()
+    {
+        invincible = false;
+    }
 
     public void Move()
     {
@@ -118,7 +151,7 @@ public class PlayerController : MonoBehaviour {
         float variation = 0.1f;
         
         float interval = 0.5f;
-        float longInterval = 2f;
+  
         if (shield.activeSelf&& shieldBar.fillAmount > 0)
         {
             while (shield.activeSelf && shieldBar.fillAmount > 0)
@@ -135,11 +168,12 @@ public class PlayerController : MonoBehaviour {
                 while (!shield.activeSelf)
                 {
                     shieldBar.fillAmount += variation;
-                    yield return new WaitForSeconds(longInterval);
+                    yield return new WaitForSeconds(interval);
                 }
             }
             else
             {
+                shieldSound.Stop();
                 shield.SetActive(false);
                 invincible = false;
             }
@@ -174,6 +208,7 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (shieldBar.fillAmount > 0)
                     {
+                        shieldSound.Play();
                         shield.SetActive(true);
 
                         invincible = true;
@@ -181,17 +216,21 @@ public class PlayerController : MonoBehaviour {
                 }
                 else
                 {
+                    shieldSound.Stop();
                     shield.SetActive(false);
 
                     invincible = false;
                 }
             }
 
-            if (Input.GetButtonDown("vehicle"))
+            if(!invincible&&!inventory.activeSelf)
             {
-                vehicle.SetActive(true);
-                gameObject.SetActive(false);
+                if (Input.GetButtonDown("vehicle"))
+                {
+                    vehicle.SetActive(true);
+                    gameObject.SetActive(false);
 
+                }
             }
             direction = Vector2.zero;
 
@@ -199,13 +238,7 @@ public class PlayerController : MonoBehaviour {
             {
                 spriteRenderer.sprite = spriteUp;
                 direction += Vector2.up;
-
-                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 90);
-                if (!isAtUp)
-                    weapon.transform.rotation = Quaternion.Euler(0, 0, 180);
-                if (isAtRight)
-                    weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
-                isAtUp = true;
+                  isAtUp = true;
                 isAtRight = false;
                 isAtBottom = false;
                 isAtLeft = false;
@@ -215,11 +248,6 @@ public class PlayerController : MonoBehaviour {
             {
                 spriteRenderer.sprite = spriteLeft;
                 direction += Vector2.left;
-                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 180);
-                if (!isAtLeft)
-                    weapon.transform.rotation = Quaternion.Euler(0, 0, 270);
-                if (isAtRight)
-                    weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
                 isAtUp = false;
                 isAtRight = false;
                 isAtBottom = false;
@@ -230,12 +258,7 @@ public class PlayerController : MonoBehaviour {
             {
                 spriteRenderer.sprite = spriteDown;
                 direction += Vector2.down;
-                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 270);
-                if (!isAtBottom)
-                    weapon.transform.rotation = Quaternion.Euler(0, 0, 0);
-                if (isAtRight)
-                    weapon.transform.position = new Vector3(weapon.transform.position.x - 0.20f, weapon.transform.position.y);
-                isAtUp = false;
+                      isAtUp = false;
                 isAtRight = false;
                 isAtBottom = true;
                 isAtLeft = false;
@@ -246,12 +269,7 @@ public class PlayerController : MonoBehaviour {
 
                 spriteRenderer.sprite = spriteRight;
                 direction += Vector2.right;
-                bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, 0);
-                if (!isAtRight)
-                    weapon.transform.position = new Vector3(weapon.transform.position.x + 0.20f, weapon.transform.position.y);
-                if (!isAtRight)
-                    weapon.transform.rotation = Quaternion.Euler(0, 0, 90);
-                isAtRight = true;
+                  isAtRight = true;
                 isAtUp = false;
                 isAtBottom = false;
                 isAtLeft = false;
@@ -261,21 +279,32 @@ public class PlayerController : MonoBehaviour {
 
     public void shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject bullet;
-            bullet = Instantiate(bulletPrefab, bulletPrefab.transform.position, gameObject.transform.rotation);
+            bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, gameObject.transform.rotation);
             bullet.SetActive(true);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletPrefab.transform.right * 5.0f;
-            Destroy(bullet, 2.0f);
+            bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawner.transform.right * speedBullet;
+            Destroy(bullet, 3.0f);
         }
     }
-
+     public static void SetSpeedBullet(float speed1)
+    {
+        speedBullet = speed1;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "enemyBullet")
         {
-            PlayerDie();
+            if (!invincible && !shield.activeSelf)
+            {
+                PlayerDie();
+                Invoke("resetInvulnerability", 1);
+                invincible = true;
+                StartCoroutine("InvincibleVisual");
+
+            }
+           
             Destroy(collision.gameObject);
         }
         if (collision.tag == "health")
@@ -283,10 +312,7 @@ public class PlayerController : MonoBehaviour {
             PlayerHeal();
             Destroy(collision.gameObject);
         }
-        if (collision.tag == "enemyMinon")
-        {
-            PlayerDie();
-        }
+      
     }
 
     public void PlayerDie()
@@ -303,11 +329,14 @@ public class PlayerController : MonoBehaviour {
                 textLifes.text = TEXT_LIFES + playerLifes;
             }
             PlayerPrefs.SetInt("lifes", playerLifes);
+            
         }
+       
     }
 
     public void PlayerHeal()
     {
+        heartSound.Play();
         playerLifes++;
         textLifes.text = TEXT_LIFES + playerLifes;
         PlayerPrefs.SetInt("lifes", playerLifes);
@@ -331,6 +360,23 @@ public class PlayerController : MonoBehaviour {
         }
 
 
+    }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemyMinon")
+        {
+            if (!invincible && !shield.activeSelf)
+            {
+                PlayerDie();
+                Invoke("resetInvulnerability", 1);
+                invincible = true;
+                StartCoroutine("InvincibleVisual");
+
+            }
+        }
     }
 
     public static string GetDirection()

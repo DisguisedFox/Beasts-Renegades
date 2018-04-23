@@ -8,11 +8,13 @@ public class enemy2Controller : MonoBehaviour {
     Transform playerPos;
     [SerializeField]
     Animator animator;
+    [SerializeField]
+   Camera principalCamera;
     bool facingRight = true;
     private float speed = 0.2f;
     private float distance = 0.5f;
     private float deltaTeleportPos = 2f;
-    private float maxDistance = 3.15f;
+    private float maxRange = 0.002f;
     private float deltaGun= 0.2f;
     [SerializeField]
     GameObject bullet;
@@ -20,28 +22,20 @@ public class enemy2Controller : MonoBehaviour {
     Transform gunPos;
     [SerializeField]
     GameObject effect;
+    float counter_time = 0.0f;
 
-    
     private Color baseColor;
     private SpriteRenderer render;
     bool gunPosUp = false;
     bool gunPosRight = true;
     bool gunPosLeft = false;
     bool coroutineLoading = false;
-    TeleportState enemyTeleportState;
-    enum TeleportState
-    {
-        NOTHING,
-        TRANSPOSITION,
-        WAITINTERVAL,
-        TELEPORTATION,
-        BLINKING
-    }
+   
     // Use this for initialization
     void Start ()
     {
      
-        enemyTeleportState=TeleportState.NOTHING;
+       
         render= GetComponent<SpriteRenderer>();
         baseColor = render.color;
 	}
@@ -63,13 +57,11 @@ public class enemy2Controller : MonoBehaviour {
     }
     private void MoveToPlayer()
     {
-        float diffX= Mathf.Abs(transform.InverseTransformPoint(playerPos.transform.position).x);
-        float diffY = Mathf.Abs(transform.InverseTransformPoint(playerPos.transform.position).y);
 
-        if (diffX <= maxDistance || diffY <= maxDistance)
-        {
-            if ((diffY>distance) &&transform.position.y<playerPos.transform.position.y)
+        if (gameObject.GetComponent<Renderer>().isVisible)
             {
+                if (transform.position.y<playerPos.transform.position.y-0.5f)
+                {
                 animator.SetBool("horizontal", false);
                 animator.SetBool("vertical", true);
                 animator.SetBool("walking", true);
@@ -85,7 +77,7 @@ public class enemy2Controller : MonoBehaviour {
             }
             else
             {
-                if((diffY>distance)&& transform.position.y > playerPos.transform.position.y)
+                if(transform.position.y > playerPos.transform.position.y + 0.5f)
                 {
                     animator.SetBool("horizontal", false);
                     animator.SetBool("vertical", true);
@@ -102,7 +94,7 @@ public class enemy2Controller : MonoBehaviour {
                 }
                 else
                 {
-                    if ((diffX > distance) && transform.position.x < playerPos.transform.position.x)
+                    if (transform.position.x < playerPos.transform.position.x - 0.5f)
                     {
                         animator.SetBool("horizontal", true);
                         animator.SetBool("vertical", false);
@@ -122,7 +114,7 @@ public class enemy2Controller : MonoBehaviour {
                     }
                     else
                     {
-                        if ((diffX > distance) && transform.position.x > playerPos.transform.position.x)
+                        if (transform.position.x > playerPos.transform.position.x + 0.5f)
                         {
                             animator.SetBool("horizontal", true);
                             animator.SetBool("vertical", false);
@@ -148,8 +140,7 @@ public class enemy2Controller : MonoBehaviour {
 
     private void MoveUp()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
-        
+        transform.Translate(Vector2.up * speed * Time.deltaTime); 
     }
     private void MoveRight()
     {
@@ -164,21 +155,12 @@ public class enemy2Controller : MonoBehaviour {
     }
     private void TeleportBottom()
     {
-        switch(enemyTeleportState)
+        counter_time += Time.deltaTime;
+        if (counter_time >= 2f)
         {
-            case TeleportState.NOTHING:
-                effect.SetActive(true);
-                StartCoroutine("Blink");
-                break;
-            case TeleportState.TRANSPOSITION:
-                StartCoroutine("TransposeEffect");
-                break;
-            case TeleportState.TELEPORTATION:
-                TransposeEnemy();
-                break;
-           
+            transform.position = new Vector2(transform.position.x, playerPos.position.y);
+            counter_time = 0f;
         }
-       
     }
     
     private void Flip()
@@ -188,56 +170,39 @@ public class enemy2Controller : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-    private IEnumerator Blink()
-    {
-        enemyTeleportState = TeleportState.BLINKING;
-        float duration = 4f;
-        float time = Time.time;
-       
-        while (Time.time - time < duration)
-        {
-            yield return new WaitForSeconds(0.5f);
-            render.color = Color.clear;
-            yield return new WaitForSeconds(0.5f);
-            render.color = baseColor;
-        }
-        render.color = Color.clear;
-        enemyTeleportState = TeleportState.TRANSPOSITION;
-    }
+   
     private IEnumerator Shoot()
     {
-        float speedBullet = 3f;
-        coroutineLoading = true;
-        float shootInterval = 3f;
-        GameObject bullet1 = Instantiate(bullet,gunPos);
-        bullet1.SetActive(true);
-        Rigidbody2D rigidBullet = bullet1.GetComponent<Rigidbody2D>() ;
-        if (gunPosUp)
-            rigidBullet.AddForce(Vector2.up*speedBullet, ForceMode2D.Impulse);
-        else
-            if(gunPosLeft)
+       
+            float speedBullet = 2.5f;
+            coroutineLoading = true;
+            float shootInterval = 3f;
+            GameObject bullet1 = Instantiate(bullet, gunPos);
+            bullet1.SetActive(true);
+            Rigidbody2D rigidBullet = bullet1.GetComponent<Rigidbody2D>();
+            if (gunPosUp)
+                rigidBullet.AddForce(Vector2.up * speedBullet, ForceMode2D.Impulse);
+            else
+                if (gunPosLeft)
                 rigidBullet.AddForce(Vector2.left * speedBullet, ForceMode2D.Impulse);
-        else
-             if (gunPosRight)
-            rigidBullet.AddForce(Vector2.right * speedBullet, ForceMode2D.Impulse);
+            else
+                 if (gunPosRight)
+                rigidBullet.AddForce(Vector2.right * speedBullet, ForceMode2D.Impulse);
 
-        Destroy(bullet1, 4f);
-        yield return new WaitForSeconds(shootInterval);
-        coroutineLoading = false;
-    }
-    private IEnumerator TransposeEffect()
-    {
-        render.color = Color.red;
-        effect.transform.position = transform.position + new Vector3(0, playerPos.position.y - deltaTeleportPos);
-        enemyTeleportState = TeleportState.WAITINTERVAL;
-        yield return new WaitForSeconds(2f);
-        enemyTeleportState = TeleportState.TELEPORTATION;
-        render.color = baseColor;
-    }
-    private void TransposeEnemy()
-    {
-        effect.SetActive(false);
-        transform.position = effect.transform.position;
-        enemyTeleportState = TeleportState.NOTHING;
-    }
+            if (bullet!=null&&(bullet.transform.position.x >principalCamera.transform.position.x || bullet.transform.position.x < principalCamera.transform.position.x || bullet.transform.position.y > principalCamera.transform.position.y || bullet.transform.position.y <principalCamera.transform.position.y))
+            {
+                DestroyImmediate(bullet1);
+            }
+            else
+            {
+                Destroy(bullet1,3f);
+            }
+            yield return new WaitForSeconds(shootInterval);
+            coroutineLoading = false;
+
+        }
+
+      
+    
+   
 }

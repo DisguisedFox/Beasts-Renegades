@@ -1,0 +1,1033 @@
+fileFormatVersion: 2
+guid: 038741a7a64762945b8da483e039cdf4
+timeCreated: 1519816260
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Magic_Ring_13_0
+    21300002: Magic_Ring_13_1
+    21300004: Magic_Ring_13_2
+    21300006: Magic_Ring_13_3
+    21300008: Magic_Ring_13_4
+    21300010: Magic_Ring_13_5
+    21300012: Magic_Ring_13_6
+    21300014: Magic_Ring_13_7
+    21300016: Magic_Ring_13_8
+    21300018: Magic_Ring_13_9
+    21300020: Magic_Ring_13_10
+    21300022: Magic_Ring_13_11
+    21300024: Magic_Ring_13_12
+    21300026: Magic_Ring_13_13
+    21300028: Magic_Ring_13_14
+    21300030: Magic_Ring_13_15
+    21300032: Magic_Ring_13_16
+    21300034: Magic_Ring_13_17
+    21300036: Magic_Ring_13_18
+    21300038: Magic_Ring_13_19
+    21300040: Magic_Ring_13_20
+    21300042: Magic_Ring_13_21
+    21300044: Magic_Ring_13_22
+    21300046: Magic_Ring_13_23
+    21300048: Magic_Ring_13_24
+    21300050: Magic_Ring_13_25
+    21300052: Magic_Ring_13_26
+    21300054: Magic_Ring_13_27
+    21300056: Magic_Ring_13_28
+    21300058: Magic_Ring_13_29
+    21300060: Magic_Ring_13_30
+    21300062: Magic_Ring_13_31
+    21300064: Magic_Ring_13_32
+    21300066: Magic_Ring_13_33
+    21300068: Magic_Ring_13_34
+    21300070: Magic_Ring_13_35
+    21300072: Magic_Ring_13_36
+    21300074: Magic_Ring_13_37
+    21300076: Magic_Ring_13_38
+    21300078: Magic_Ring_13_39
+    21300080: Magic_Ring_13_40
+    21300082: Magic_Ring_13_41
+    21300084: Magic_Ring_13_42
+    21300086: Magic_Ring_13_43
+    21300088: Magic_Ring_13_44
+    21300090: Magic_Ring_13_45
+    21300092: Magic_Ring_13_46
+    21300094: Magic_Ring_13_47
+    21300096: Magic_Ring_13_48
+    21300098: Magic_Ring_13_49
+    21300100: Magic_Ring_13_50
+    21300102: Magic_Ring_13_51
+    21300104: Magic_Ring_13_52
+    21300106: Magic_Ring_13_53
+    21300108: Magic_Ring_13_54
+    21300110: Magic_Ring_13_55
+    21300112: Magic_Ring_13_56
+    21300114: Magic_Ring_13_57
+    21300116: Magic_Ring_13_58
+    21300118: Magic_Ring_13_59
+    21300120: Magic_Ring_13_60
+    21300122: Magic_Ring_13_61
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Magic_Ring_13_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1796
+        width: 251
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_1
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1796
+        width: 251
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_2
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1796
+        width: 251
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_3
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1797
+        width: 251
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_4
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1797
+        width: 251
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_5
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 1797
+        width: 250
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_6
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 1796
+        width: 250
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_7
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 1796
+        width: 249
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1539
+        width: 249
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_9
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1538
+        width: 250
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_10
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1538
+        width: 250
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_11
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1537
+        width: 251
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_12
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1537
+        width: 251
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_13
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 1537
+        width: 252
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_14
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1537
+        width: 251
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_15
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1537
+        width: 251
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1281
+        width: 250
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_17
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1282
+        width: 247
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_18
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1282
+        width: 247
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_19
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1283
+        width: 245
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_20
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 1283
+        width: 244
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_21
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 1283
+        width: 244
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_22
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 1283
+        width: 244
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_23
+      rect:
+        serializedVersion: 2
+        x: 1797
+        y: 1283
+        width: 244
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_24
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1025
+        width: 246
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_25
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1025
+        width: 246
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_26
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 768
+        width: 251
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_27
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 768
+        width: 251
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_28
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 1024
+        width: 247
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_29
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 1024
+        width: 247
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_30
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1024
+        width: 247
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_31
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 1024
+        width: 248
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 768
+        width: 249
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_33
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 768
+        width: 249
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_34
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 769
+        width: 252
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_35
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 769
+        width: 252
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_36
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 769
+        width: 252
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_37
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 770
+        width: 253
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_38
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 514
+        width: 252
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_39
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 515
+        width: 252
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_40
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 515
+        width: 249
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_41
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 516
+        width: 248
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_42
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 516
+        width: 246
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_43
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 516
+        width: 247
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_44
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 516
+        width: 246
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_45
+      rect:
+        serializedVersion: 2
+        x: 1797
+        y: 515
+        width: 245
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_46
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 258
+        width: 245
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_47
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 258
+        width: 245
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_48
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 258
+        width: 244
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_49
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 258
+        width: 244
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_50
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 258
+        width: 244
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_51
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 258
+        width: 245
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_52
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 258
+        width: 245
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_53
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 258
+        width: 247
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_54
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 247
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_55
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2
+        width: 248
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_56
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 2
+        width: 248
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_57
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 2
+        width: 249
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_58
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 3
+        width: 249
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_59
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 3
+        width: 250
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_60
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 3
+        width: 250
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Magic_Ring_13_61
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 4
+        width: 251
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

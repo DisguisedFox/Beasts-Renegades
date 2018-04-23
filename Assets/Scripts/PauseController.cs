@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class PauseController : MonoBehaviour {
 
     [SerializeField]
@@ -52,7 +54,7 @@ public class PauseController : MonoBehaviour {
 
     void exitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("StartMenu");
     }
 }
 

@@ -30,6 +30,20 @@ public class MiniBossScript : MonoBehaviour
     GameObject vehicleTarget;
     [SerializeField]
     private bool isLastBoss;
+    [SerializeField]
+    private AudioSource deamonDying;
+
+    enum state
+    {
+        IDLE,
+        HURTED,
+        INVICIBLE,
+        DEAD
+    }
+    state boss_state = state.IDLE;
+
+    float counter_time = 0.0f;
+    float counter_turn = 0;
     // Use this for initialization
     void Start()
     {
@@ -57,15 +71,6 @@ public class MiniBossScript : MonoBehaviour
             if (!invincible)
             {
                 EnemyDie();
-                invincible = true;
-                if (spriteRenderer.sprite != spriteSmoke)
-                {
-                    Invoke("resetInvulnerability", 1);
-                }
-                else
-                {
-                    resetInvulnerability();
-                }
             }
             Destroy(collision.gameObject);
         }
@@ -83,40 +88,80 @@ public class MiniBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!playerTempTarget.activeSelf)
             target = vehicleTarget.transform;
         else
             target = playerTempTarget.transform;
-        FollowTarget();
-        spawn.rotation = Quaternion.LookRotation(Vector3.forward, target.position - spawn.position);
-        StartCoroutine(InvincibleVisual());
-    }
 
-    public IEnumerator InvincibleVisual()
-    {
-        if (invincible && enemyLifes > 0)
+        spawn.rotation = Quaternion.LookRotation(Vector3.forward, target.position - spawn.position);
+        switch (boss_state)
         {
-            while (invincible)
-            {
-                spriteRenderer.enabled = false;
-                yield return new WaitForSeconds(0.1f);
-                spriteRenderer.enabled = true;
-                yield return new WaitForSeconds(0.1f);
-            }
+            case state.IDLE:
+                FollowTarget();
+                break;
+            case state.HURTED:
+                counter_time += Time.deltaTime;
+                if (counter_time <= 0.3f)
+                {
+                    spriteRenderer.color = Color.red;
+                }
+                else
+                {
+                    spriteRenderer.color = Color.white;
+                    boss_state = state.INVICIBLE;
+                    counter_time = 0.0f;
+                }
+                break;
+            case state.INVICIBLE:
+                counter_time += Time.deltaTime;
+                if (counter_turn <= 5)
+                {
+                    if (counter_time <= 0.1f)
+                    {
+                        spriteRenderer.enabled = false;
+                    }
+                    else
+                    {
+                        spriteRenderer.enabled = true;
+                        if (counter_time <= 0.2f)
+                        {
+                            counter_time = 0.0f;
+                            counter_turn++;
+                        }
+                    }
+                }
+                else
+                {
+                    spriteRenderer.enabled = true;
+                    invincible = false;
+                    counter_time = 0.0f;
+                    counter_turn = 0;
+                    boss_state = state.IDLE; 
+                }
+                break;
+            case state.DEAD:
+                spriteRenderer.sprite = spriteSmoke;
+                deamonDying.Play();
+                if (isLastBoss)
+                {
+                    lastTeleporter.SetActive(true);
+                }
+                Destroy(gameObject, 0.3f);
+                break;
+            default:
+                break;
         }
     }
 
     public void EnemyDie()
     {
         enemyLifes--;
+        invincible = true;
+        boss_state = state.HURTED;
         if (enemyLifes <= 0)
         {
-            spriteRenderer.sprite = spriteSmoke;
-            if (isLastBoss)
-            {
-                lastTeleporter.SetActive(true);
-            }
-            Destroy(gameObject, 0.5f);
+            boss_state = state.DEAD;
         }
     }
 
@@ -124,11 +169,6 @@ public class MiniBossScript : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
-    }
-
-    private void resetInvulnerability()
-    {
-        invincible = false;
     }
 
 }

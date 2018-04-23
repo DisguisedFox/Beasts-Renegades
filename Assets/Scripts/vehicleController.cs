@@ -16,7 +16,8 @@ public class VehicleController : MonoBehaviour {
     GameObject bulletPrefab;
     [SerializeField]
     GameObject bulletSpawner;
-
+    [SerializeField]
+    AudioSource heartSound;
     private bool invincible=false;
     private Vector2 direction;
     [SerializeField]
@@ -33,7 +34,7 @@ public class VehicleController : MonoBehaviour {
     [SerializeField]
     private Text textLifes;
     private const string TEXT_LIFES = "Lifes : ";
-
+    private bool coroutineIsLooping = false;
     [SerializeField]
     GameObject inventory;
     [SerializeField]
@@ -48,13 +49,22 @@ public class VehicleController : MonoBehaviour {
     private float speedBullet=2f;
     [SerializeField]
     Canvas pauseCanvas;
+    [SerializeField]
+    AudioSource shieldSound;
     // Use this for initialization
     [SerializeField]
     private SpriteRenderer weapon;
+
+    private SpriteRenderer rend;
     // Use this for initialization
     void Start ()
     {
-       
+        if (SceneManager.GetActiveScene().name.Equals("station2"))
+            {
+            vehicleHalfSizeTopDown = 0.05f;
+            vehicleHalfSize = 0.20f;
+        }
+    rend = GetComponent<SpriteRenderer>();
         StartCoroutine("ShieldVariate");
 
         canvasUI.worldCamera = GetComponent<Camera>();
@@ -89,12 +99,14 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
 
             ToggleInventory();
             shield.transform.position = transform.position;
+
         }
     }
     private void OnEnable()
     {
+        StartCoroutine("ShieldVariate");
         spriteRenderer = GetComponent<SpriteRenderer>();
-        transform.position = player.transform.position;
+        
         
         bulletPrefab.SetActive(false);
         playerLifes = PlayerPrefs.GetInt("lifes");
@@ -150,7 +162,7 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
         }
 
 
-        if (!pauseCanvas.isActiveAndEnabled)
+        if (!pauseCanvas.isActiveAndEnabled&&!invincible&&!inventory.activeSelf)
         {
             if (Input.GetButtonDown("vehicle"))
             {
@@ -165,12 +177,14 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
 
                     if (shieldBar.fillAmount > 0)
                     {
+                        shieldSound.Play();
                         shield.SetActive(true);
-                        invincible = true;
+                       
                     }
                 }
                 else
                 {
+                    shieldSound.Stop();
                     shield.SetActive(false);
                     invincible = false;
 
@@ -311,7 +325,7 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
         {
             if (!SceneManager.GetActiveScene().name.Equals("station"))
             {
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown);
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y + vehicleHalfSizeTopDown/2f);
 
             }
             
@@ -330,7 +344,7 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
 
             if (!SceneManager.GetActiveScene().name.Equals("station"))
             {
-                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown);
+                weapon.transform.position = new Vector3(weapon.transform.position.x, weapon.transform.position.y - vehicleHalfSizeTopDown/2f);
 
             }
 
@@ -397,7 +411,7 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
         float variation = 0.1f;
 
         float interval = 0.5f;
-        float longInterval = 2f;
+        
         if (shield.activeSelf && shieldBar.fillAmount > 0)
         {
             while (shield.activeSelf && shieldBar.fillAmount > 0)
@@ -414,11 +428,12 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
                 while (!shield.activeSelf)
                 {
                     shieldBar.fillAmount += variation;
-                    yield return new WaitForSeconds(longInterval);
+                    yield return new WaitForSeconds(interval);
                 }
             }
             else
             {
+                shieldSound.Stop();
                 shield.SetActive(false);
                 invincible = false;
             }
@@ -442,23 +457,42 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
             Destroy(bullet, 2.0f);
         }
     }
-
+    public IEnumerator InvincibleVisual()
+    {
+        
+            while (invincible)
+            {
+                coroutineIsLooping = true;
+                rend.enabled = false;
+                yield return new WaitForSeconds(0.1f);
+                rend.enabled = true;
+                yield return new WaitForSeconds(0.1f);
+            }
+      
+    }
+    private void resetInvulnerability()
+    {
+        invincible = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "enemyBullet")
         {
-            PlayerDie();
+            if (!invincible && !shield.activeSelf)
+            {
+                PlayerDie();
+                Invoke("resetInvulnerability", 1);
+                invincible = true;
+                StartCoroutine("InvincibleVisual");
+            }
             Destroy(collision.gameObject);
         }
         if (collision.tag == "health")
         {
-           // PlayerHeal();
+           PlayerHeal();
             Destroy(collision.gameObject);
         }
-        if (collision.tag == "enemyMinon")
-        {
-            PlayerDie();
-        }
+       
     }
 
     public void PlayerDie()
@@ -478,13 +512,14 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
         }
     }
 
-  /*  public void PlayerHeal()
+   public void PlayerHeal()
     {
+        heartSound.Play();
         playerLifes++;
         textLifes.text = TEXT_LIFES + playerLifes;
         PlayerPrefs.SetInt("lifes", playerLifes);
     }
-*/
+
     public void ToggleInventory()
     {
         if (!inventory.activeSelf && Input.GetButtonDown("backButton"))
@@ -519,7 +554,19 @@ spriteRenderer.sprite = spriteDown; // set the sprite to spriteDown
 
         return "bottom";
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemyMinon")
+        {
+            if (!invincible && !shield.activeSelf)
+            {
+                PlayerDie();
+                Invoke("resetInvulnerability", 1);
+                invincible = true;
 
+            }
+        }
+    }
 }
 
 

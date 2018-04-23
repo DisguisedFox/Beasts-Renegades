@@ -3,21 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LastTeleporterController : MonoBehaviour {
+public class LastTeleporterController : MonoBehaviour
+{
+    [SerializeField]
+    AudioSource teleportSound;
+    // Use this for initialization
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
-            SceneManager.LoadScene("station2");
+        {
+            teleportSound.Play();
+            StartCoroutine("PlaySound");
+
+        }
+    }
+
+    private IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene("station2");
     }
 }
